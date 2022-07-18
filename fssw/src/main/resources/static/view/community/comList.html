@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Tamil+Supplement&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../../assets/css/Navbar-With-Button-icons.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/untitled.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
+        <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;일반 게시판</span><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">학습 과정</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">팀원 구하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="fixed-bottom" style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
+        <ul class="nav nav-tabs" style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
+            <li class="nav-item" style="background: rgba(255,0,0,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
+        </ul>
+    </div>
+    <div class="container-fluid" style="height: 0px;">
+        <div class="card shadow" style="margin-top: 100px;">
+            <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">일반 게시판</span></div>
+            <div class="card-body">
+                <div class="d-flex justify-content-start dataTables_length" id="dataTable_length" aria-controls="dataTable"></div>
+                <div class="row">
+                    <div class="col d-flex"><select class="d-inline-block form-select form-select-sm" style="width: 100%;height: 30px;">
+                            <option value="" selected="">진로 계획</option>
+                            <option value="">고민 상담</option>
+                            <option value="">연애 상담</option>
+                        </select></div>
+                    <div class="col offset-0 d-flex d-lg-flex justify-content-end" style="width: 100%;"><button class="btn btn-primary text-center border rounded d-lg-flex justify-content-center align-items-center justify-content-lg-center justify-content-xxl-center" type="button" style="width: 100px;height: 60px;color: rgb(255,255,255);background: rgb(32,113,250);font-size: 13px;border-color: #ffffff;">게시글 작성</button></div>
+                </div>
+                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>게시물</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="flash animated" style="font-size: 15px;"><span style="color: rgb(129, 129, 129);">[연애 상담]</span> 제가 연애를 할 수 있을까요?&nbsp;</td>
+                            </tr>
+                            <tr class="flash animated" style="font-size: 15px;">
+                                <td class="flash animated" style="font-size: 15px;">메타버스 할 사람 구합니다.</td>
+                            </tr>
+                            <tr class="flash animated" style="font-size: 15px;">
+                                <td class="flash animated" style="font-size: 15px;">맨-밑 할 팀원 구합니다.</td>
+                            </tr>
+                            <tr class="flash animated" style="font-size: 15px;">
+                                <td class="flash animated" style="font-size: 15px;">스터디 할 사람 구해요</td>
+                            </tr>
+                            <tr class="flash animated" style="font-size: 15px;">
+                                <td class="flash animated" style="font-size: 15px;">네이버 갈 팀원 구합니다.</td>
+                            </tr>
+                            <tr class="flash animated" style="font-size: 15px;">
+                                <td class="flash animated" style="font-size: 15px;">롤 할사람 구함.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <nav class="d-flex float-end d-md-flex d-lg-flex justify-content-center align-items-center justify-content-md-center justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                            <li class="page-item border rounded-pill active" style="transform-origin: left;background: rgb(255,255,255);"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="text-end text-md-end d-flex justify-content-end dataTables_filter" id="dataTable_filter">
+                    <div class="col d-flex align-items-lg-center" style="width: 100%;height: 30px;"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" style="margin: 6px;"><button class="btn btn-primary d-flex justify-content-center align-items-center" type="button" style="height: 30px;background: rgb(32,113,250);color: rgb(255,255,255);width: 117px;font-size: 12px;margin: 7px;border-color: #ffffff;">검색 하기</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/bs-init.js"></script>
+    <script src="../../assets/js/agency.js"></script>
+    <script src="../../assets/js/roadmap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>
