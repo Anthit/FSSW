@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Tamil+Supplement&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../../assets/css/Navbar-With-Button-icons.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/untitled.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
+        <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;로그인</span><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">학습 과정</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">팀원 구하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(0,0,0);">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info" style="font-size: 50px;text-align: center;margin-bottom: 15px;">Login</h2>
+                </div>
+                <form>
+                    <div class="d-flex mb-3"><i class="fa fa-star fa fa-user rf-icon" style="color: var(--bs-body-color);font-size: 40px;width: 40px;"></i><input class="form-control item" type="text" id="name" placeholder="이메일" style="width: 90%;"></div>
+                    <div class="d-flex mb-3"><i class="fa fa-star fa fa-key rf-icon" style="color: var(--bs-body-color);font-size: 40px;width: 45px;"></i><input class="form-control item" type="password" id="password" placeholder="비밀번호" style="width: 90%;"></div>
+                    <div class="mb-3"></div><button class="btn btn-primary border rounded" type="submit" style="width: 50%;background: rgb(32,113,250);">로그인</button><button class="btn btn-primary border rounded" type="submit" style="width: 50%;background: rgb(32,113,250);">회원가입</button>
+                    <p class="text-muted" style="text-align: center;margin-top: 30px;"><img src="../../assets/img/google.png" style="width: 8%;">&nbsp; Google 계정으로 계속하기</p>
+                    <div></div>
+                    <p class="text-muted" style="text-align: center;"><img src="../../assets/img/forgot.jpg" style="width: 10%;">Forgot your password?</p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <div class="fixed-bottom" style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
+        <ul class="nav nav-tabs" style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
+            <li class="nav-item" style="background: rgba(255,0,0,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
+        </ul>
+    </div>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/bs-init.js"></script>
+    <script src="../../assets/js/agency.js"></script>
+    <script src="../../assets/js/roadmap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>
