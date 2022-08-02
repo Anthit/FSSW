@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/view/layouts/layout}">
+      layout:decorate="~{/layouts/layout}">
+
 <th:block layout:fragment="content">
     <main class="page gallery-page">
         <section class="clean-block clean-gallery dark">
@@ -14,34 +15,23 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="font-size: 11px;background: #2071fa;text-align: center;color: rgb(255,255,255);">1학년 1학기</td>
-                            <td style="font-size: 11px;text-align: center;">1학년 2학기</td>
+                            <td class="curCate" role="curContents1" style="font-size: 11px;text-align: center;background: #2071fa;color: rgb(255,255,255);">1학년 1학기</td>
+                            <td class="curCate" role="curContents2" style="font-size: 11px;text-align: center;">1학년 2학기</td>
                         </tr>
                         <tr style="font-size: 11px;text-align: center;">
-                            <td style="font-size: 11px;text-align: center;">2학년 1학기</td>
-                            <td style="font-size: 11px;text-align: center;">2학년 2학기</td>
+                            <td class="curCate" role="curContents3" style="font-size: 11px;text-align: center;">2학년 1학기</td>
+                            <td class="curCate" role="curContents4" style="font-size: 11px;text-align: center;">2학년 2학기</td>
                         </tr>
                         <tr style="font-size: 11px;text-align: center;">
-                            <td style="font-size: 11px;text-align: center;">3학년 1학기</td>
-                            <td style="font-size: 11px;text-align: center;">3학년 2학기</td>
+                            <td class="curCate" role="curContents5" style="font-size: 11px;text-align: center;">3학년 1학기</td>
+                            <td class="curCate" role="curContents6" style="font-size: 11px;text-align: center;">3학년 2학기</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
+
                 <div class="col">
-                    <div class="item" style="padding: 10px;border-bottom-style: solid;border-bottom-color: rgba(0,0,0,0.3);">
-                        <div class="row">
-                            <div class="col-md-6"><a href="#" style="font-size: 25px;"><strong><span style="color: rgb(33, 37, 41);">C언어</span></strong><br></a></div>
-                            <div class="col">
-                                <p class="text-muted">가볍게 C언어의 기초를 배우고 들어갑니다람쥐~라는 간단한 설명의 텍스트가 들어갈 파라그래프입니당다라당당숭당당</p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row flex-wrap" >
-                                <span style="font-weight: bold;margin: 5px;background: #2071fa;padding: 5px;border-radius: 25px;color: rgb(255,255,255);" th:each="keywordMap : ${lists}">
-                                    <a href="#" style="color: rgb(255,255,255);" th:text="${keywordMap.key}"></a>
-                                </span>
-                        </div>
-                    </div>
+                    <th:block th:replace="/layouts/curriculumContents"></th:block>
                 </div>
             </div>
         </section>
