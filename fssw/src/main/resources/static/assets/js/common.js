@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    console.log($(location)/*.attr("pathname")*/);
+    console.log($(location));
     console.log($(location).attr("pathname"));
     console.log($(location).attr("search"));
     var pathname = $(location).attr("pathname");
@@ -41,6 +41,6 @@ $(document).ready(function(){
 
 
 
-// $("#topSpan").click(function () {
-//     location.href = sessionStorage.getItem("redirectPath");
-// });
+$("#topSpan").click(function () {
+
+});
