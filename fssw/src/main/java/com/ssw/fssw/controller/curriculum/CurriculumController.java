@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CurriculumController {
     @RequestMapping("")
     public String curriculum(){
-        return "view/curriculum/curriculum";
+        return "view/curriculum/ curriculum";
     }
 }
