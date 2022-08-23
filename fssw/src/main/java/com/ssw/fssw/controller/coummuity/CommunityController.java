@@ -1,8 +1,11 @@
 package com.ssw.fssw.controller.coummuity;
 
 
+import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
+import com.ssw.fssw.repository.CommentApiRepository;
 import com.ssw.fssw.repository.CommunityApiRepository;
+import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +23,8 @@ public class CommunityController {
 
     private final CommunityService communityService;
     private final CommunityApiRepository communityApiRepository;
+    private final CommentApiRepository commentApiRepository;
+    private final CommentService commentService;
 
     @GetMapping
     public String communityList(Model model, @RequestParam(defaultValue = "0") int page) {
@@ -47,14 +52,19 @@ public class CommunityController {
     }
 
     @GetMapping("/{id}/comDetail")
-    public String updateForm(@PathVariable("id") Long id, Model model) {
+    public String pageDetail(@PathVariable("id") Long id, Model model) {
         Community community = communityService.findOne(id);
 
         CommunityForm form = new CommunityForm();
         form.setTitle(community.getTitle());
         form.setContent(community.getContents());
 
+
         model.addAttribute("community", community);
+        // comment 부분
+
+        List<Comment> commentList = commentService.commentList();
+        model.addAttribute("comments",commentList);
         return "view/board/comDetail";
     }
 
@@ -67,6 +77,8 @@ public class CommunityController {
         form.setContent(community.getContents());
 
         model.addAttribute("updateform", form);
+
+
         return "view/board/comModify";
     }
 
@@ -80,7 +92,7 @@ public class CommunityController {
 
     @GetMapping("/{id}/delete")
     public String deleteCommunity(@PathVariable("id") Long id){
-        communityService.delete(id);
+        communityApiRepository.deleteById(id);
         return "redirect:/community";
     }
 }

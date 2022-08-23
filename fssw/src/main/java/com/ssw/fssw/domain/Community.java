@@ -19,7 +19,7 @@ public class Community {
     @Column(name="Community_code")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="Community_user_id")
     private User user;
 
