@@ -1,8 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layouts/layout}">
-<th:block layout:fragment="content">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Tamil+Supplement&amp;display=swap">
+    <link rel="stylesheet" th:href="@{/assets/fonts/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/fonts/fontawesome5-overrides.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" th:href="@{/assets/css/Navbar-With-Button-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/untitled.css}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
+        <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;팀원 구하기 게시글 수정</span><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/community" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hotKeyword" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login" style="color: rgb(0,0,0);">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="fixed-bottom" style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
+        <ul class="nav nav-tabs" style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
+            <li class="nav-item" style="background: rgba(255,0,0,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
+            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
+        </ul>
+    </div>
     <div class="container-fluid">
         <div class="card shadow" style="width: 100%;height: 100%;margin-top: 100px;">
             <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">팀원 구하기 게시글 수정</span></div>
@@ -49,5 +89,11 @@
             </div>
         </div>
     </div>
-</th:block>
+    <script th:href="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:href="@{/assets/js/bs-init.js}"></script>
+    <script th:href="@{/assets/js/agency.js}"></script>
+    <script th:href="@{/assets/js/roadmap.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
 </html>
