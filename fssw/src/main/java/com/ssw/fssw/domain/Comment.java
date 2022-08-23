@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name="COMMENT")
+@Table(name="Comment")
 public class Comment {
 
     @Id
