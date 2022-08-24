@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FSSW.iml" filepath="$PROJECT_DIR$/.idea/FSSW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fssw.iml" filepath="$PROJECT_DIR$/.idea/modules/fssw.iml" />
     </modules>
   </component>
 </project>

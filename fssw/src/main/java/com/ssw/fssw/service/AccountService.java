@@ -12,7 +12,7 @@ import java.util.Optional;
 @Transactional
 public class AccountService {
     private final AccountRepository accountRepository;
-
+    //회원서비스 개발을 위한 어카운트리포즈토리
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }

@@ -10,5 +10,8 @@
         <module name="fssw.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="fssw" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

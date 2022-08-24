@@ -20,18 +20,22 @@ public class AccountController {
     }
 
     // url에 그냥 치고 들어오는 방식을 get 방식이라고 여길 타고 들어와서 단순히 createMemberForm 파일을 보여줌
-    @GetMapping("/members/new")
+    @GetMapping("/signup")
     public String createForm(){
-        return "members/createMemberForm";
+        return "view/signup/signup";
     }
 
     // form 태그에서 method=post 인것을 submit 버튼 눌렀을 때 이 경로가 호출
-    @PostMapping("/members/new")
+    @PostMapping("/signup")
     public String create(MemberForm form){
         Account account = new Account();
-        account.setEmail(form.getName());
+        account.setNick(form.getEmail());
         accountService.join(account);
-        return "redirect:/";
+
+/*        Account accountEmail = new Account();
+        accountEmail.setEmail(form.getEmail());
+        accountService.join(accountEmail);*/
+        return "redirect:/login";
     }
 
     @GetMapping("/members")
