@@ -37,7 +37,8 @@ public class CommunityService {
         return communityRepository.findOne(id);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         communityApiRepository.deleteById(id);
     }
+
 }
