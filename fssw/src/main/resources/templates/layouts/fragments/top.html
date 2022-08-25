@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <th:block th:fragment="topbarFragment">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
@@ -12,11 +12,12 @@
                 <ul class="navbar-nav ms-auto text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
                     <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/community" style="color: rgb(0,0,0);">일반 게시판</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board/community" style="color: rgb(0,0,0);">일반 게시판</a></li>
                     <li class="nav-item"><a class="nav-link" href="/hotKeyword" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
                     <li class="nav-item"><a class="nav-link" href="/faq" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login" style="color: rgb(0,0,0);">로그인</a></li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link" href="/main/login" style="color: rgb(0,0,0);">로그인</a></li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="/main/logout" style="color: rgb(0,0,0);">로그아웃</a></li>
                 </ul>
             </div>
         </div>

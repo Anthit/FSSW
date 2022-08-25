@@ -1,7 +1,7 @@
 package com.ssw.fssw.controller.searchKeyword;
 
 import com.ssw.fssw.domain.GoogleUrl;
-import com.ssw.fssw.service.SearchService;
+import com.ssw.fssw.service.search.SearchService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

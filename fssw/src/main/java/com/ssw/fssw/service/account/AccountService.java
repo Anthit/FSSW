@@ -1,10 +1,7 @@
-package com.ssw.fssw.service;
+package com.ssw.fssw.service.account;
 
 import com.ssw.fssw.domain.Account;
-import com.ssw.fssw.repository.AccountRepository;
-import com.ssw.fssw.repository.MemoryAccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.ssw.fssw.repository.account.AccountRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

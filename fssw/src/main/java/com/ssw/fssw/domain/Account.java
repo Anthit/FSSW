@@ -7,47 +7,40 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ACC_NUM")
+    @Column(name = "num")
     private Long num;
 
-    @Column(name = "ACC_EMAIL")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "ACC_USERPW")
+    @Column(name = "pw")
     private String pw;
 
-    @Column(name = "ACC_NICK")
+    @Column(name = "nick")
     private String nick;
 
     public Long getNum() {
         return num;
     }
-
-    public void setNum(Long num) {
-        this.num = num;
-    }
-
     public String getEmail() {
         return email;
+    }
+    public String getPw() {
+        return pw;
+    }
+    public String getNick() {
+        return nick;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPw() {
-        return pw;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public void setPw(String pw) {
         this.pw = pw;
-    }
-
-    public String getNick() {
-        return nick;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
     }
 }

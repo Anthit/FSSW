@@ -1,10 +1,8 @@
 package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Account;
-import com.ssw.fssw.repository.AccountRepository;
-import com.ssw.fssw.repository.MemoryAccountRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.ssw.fssw.repository.account.AccountRepository;
+import com.ssw.fssw.service.account.AccountService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 @Transactional
 class AccountServiceIntegrateTest {
-    @Autowired AccountService accountService;
+    @Autowired
+    AccountService accountService;
     @Autowired AccountRepository accountRepository;
 
 //    @BeforeEach
@@ -35,7 +34,8 @@ class AccountServiceIntegrateTest {
     void 회원가입() {
         //given
         Account account = new Account();
-        account.setEmail("spring");
+//        Account account = new Account(1L, "email", "pw", "nick");
+//        account.setEmail("spring");
 
         //when
         long saveNum = accountService.join(account);
@@ -49,9 +49,11 @@ class AccountServiceIntegrateTest {
     public void 중복_회원_예외(){
         //given
         Account account1 = new Account();
-        account1.setEmail("spring");
+//        Account account1 = new Account(1L, "email1", "pw1", "nick1");
+//        account1.setEmail("spring");
         Account account2 = new Account();
-        account2.setEmail("spring");
+//        Account account2 = new Account(1L, "email1", "pw1", "nick1");
+//        account2.setEmail("spring");
 
         // when
         accountService.join(account1);

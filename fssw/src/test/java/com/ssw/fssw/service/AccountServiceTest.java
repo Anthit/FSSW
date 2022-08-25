@@ -1,8 +1,8 @@
 package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Account;
-import com.ssw.fssw.repository.MemoryAccountRepository;
-import org.assertj.core.api.Assertions;
+import com.ssw.fssw.repository.account.MemoryAccountRepository;
+import com.ssw.fssw.service.account.AccountService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,8 @@ class AccountServiceTest {
     void 회원가입() {
         //given
         Account account = new Account();
-        account.setEmail("spring");
+//        Account account = new Account(1L, "email", "pw", "nick");
+//        account.setEmail("spring");
 
         //when
         long saveNum = accountService.join(account);
@@ -43,9 +44,9 @@ class AccountServiceTest {
     public void 중복_회원_예외(){
         //given
         Account account1 = new Account();
-        account1.setEmail("spring");
         Account account2 = new Account();
-        account2.setEmail("spring");
+//        Account account1 = new Account(1L, "email1", "pw1", "nick1");
+//        Account account2 = new Account(1L, "email2", "pw2", "nick2");
 
         // when
         accountService.join(account1);

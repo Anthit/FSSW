@@ -1,7 +1,7 @@
 package com.ssw.fssw.controller;
 
 import com.ssw.fssw.domain.Account;
-import com.ssw.fssw.service.AccountService;
+import com.ssw.fssw.service.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +28,9 @@ public class AccountController {
     // form 태그에서 method=post 인것을 submit 버튼 눌렀을 때 이 경로가 호출
     @PostMapping("/members/new")
     public String create(MemberForm form){
-        Account account = new Account();
-        account.setEmail(form.getName());
-        accountService.join(account);
+//        Account account = new Account();
+//        account.setEmail(form.getName());
+//        accountService.join(account);
         return "redirect:/";
     }
 

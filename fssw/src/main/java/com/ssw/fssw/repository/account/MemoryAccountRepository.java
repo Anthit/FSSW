@@ -1,7 +1,6 @@
-package com.ssw.fssw.repository;
+package com.ssw.fssw.repository.account;
 
 import com.ssw.fssw.domain.Account;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
@@ -10,7 +9,7 @@ public class MemoryAccountRepository implements AccountRepository{
     private static long sequence = 0L;
     @Override
     public Account save(Account account) {
-        account.setNum(++sequence);
+//        account.setNum(++sequence);
         store.put(sequence, account);
         return account;
     }
