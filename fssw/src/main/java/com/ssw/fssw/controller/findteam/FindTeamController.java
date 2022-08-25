@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FindTeamController {
     @RequestMapping("")
     public String findTeam(){
+
         return "view/findTeam/findList";
     }
 
     @RequestMapping("/findWrite")
     public String findTeamWrite(){
+
         return "view/findTeam/findWrite";
     }
 }
