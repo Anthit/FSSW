@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @Controller
 @RequestMapping("/board/community")
-public class CommunityController {
+public class CommunityControllerGY {
     @Autowired
     private BoardService boardService;
     @GetMapping("")
