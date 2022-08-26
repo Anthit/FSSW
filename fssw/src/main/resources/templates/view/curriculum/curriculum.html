@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout}">
+
+<th:block layout:fragment="content">
+    <main class="page gallery-page">
+        <section class="clean-block clean-gallery dark">
+            <div class="container">
+                <div class="block-heading"></div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="curCate" role="curContents1" style="font-size: 11px;text-align: center;background: #2071fa;color: rgb(255,255,255);">1학년 1학기</td>
+                            <td class="curCate" role="curContents2" style="font-size: 11px;text-align: center;">1학년 2학기</td>
+                        </tr>
+                        <tr style="font-size: 11px;text-align: center;">
+                            <td class="curCate" role="curContents3" style="font-size: 11px;text-align: center;">2학년 1학기</td>
+                            <td class="curCate" role="curContents4" style="font-size: 11px;text-align: center;">2학년 2학기</td>
+                        </tr>
+                        <tr style="font-size: 11px;text-align: center;">
+                            <td class="curCate" role="curContents5" style="font-size: 11px;text-align: center;">3학년 1학기</td>
+                            <td class="curCate" role="curContents6" style="font-size: 11px;text-align: center;">3학년 2학기</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col">
+                    <th:block th:replace="/layouts/fragments/curriculumContents"></th:block>
+                </div>
+            </div>
+        </section>
+    </main>
+</th:block>
+<script type="text/javascript" th:src="@{/assets/js/curriculumJS.js}"></script>
+
+</html>

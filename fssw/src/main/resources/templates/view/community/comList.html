@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout}">
+<th:block layout:fragment="content">
+    <div class="container-fluid" style="height: 0px;">
+        <div class="card shadow" style="margin-top: 100px;">
+            <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">일반 게시판</span></div>
+            <div class="card-body">
+                <div class="d-flex justify-content-start dataTables_length" id="dataTable_length" aria-controls="dataTable"></div>
+                <div class="row">
+                    <div class="col d-flex"><select class="d-inline-block form-select form-select-sm" style="width: 100%;height: 30px;">
+                        <option value="" selected="">진로 계획</option>
+                        <option value="">고민 상담</option>
+                        <option value="">연애 상담</option>
+                    </select></div>
+                    <div class="col offset-0 d-flex d-lg-flex justify-content-end" style="width: 100%;"><button class="btn btn-primary text-center border rounded d-lg-flex justify-content-center align-items-center justify-content-lg-center justify-content-xxl-center" type="button" onclick="location.href='/community/write'" style="width: 100px;height: 60px;color: rgb(255,255,255);background: rgb(32,113,250);font-size: 13px;border-color: #ffffff;">게시글 작성</button></div>
+                </div>
+                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable">
+                        <thead>
+                        <tr>
+                            <th>게시물</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="flash animated" style="font-size: 15px;"><span style="color: rgb(129, 129, 129);">[연애 상담]</span> 제가 연애를 할 수 있을까요?&nbsp;</td>
+                        </tr>
+                        <tr class="flash animated" style="font-size: 15px;">
+                            <td class="flash animated" style="font-size: 15px;">메타버스 할 사람 구합니다.</td>
+                        </tr>
+                        <tr class="flash animated" style="font-size: 15px;">
+                            <td class="flash animated" style="font-size: 15px;">맨-밑 할 팀원 구합니다.</td>
+                        </tr>
+                        <tr class="flash animated" style="font-size: 15px;">
+                            <td class="flash animated" style="font-size: 15px;">스터디 할 사람 구해요</td>
+                        </tr>
+                        <tr class="flash animated" style="font-size: 15px;">
+                            <td class="flash animated" style="font-size: 15px;">네이버 갈 팀원 구합니다.</td>
+                        </tr>
+                        <tr class="flash animated" style="font-size: 15px;">
+                            <td class="flash animated" style="font-size: 15px;">롤 할사람 구함.</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <nav class="d-flex float-end d-md-flex d-lg-flex justify-content-center align-items-center justify-content-md-center justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                            <li class="page-item border rounded-pill active" style="transform-origin: left;background: rgb(255,255,255);"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item border rounded-pill" style="transform-origin: left;"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="text-end text-md-end d-flex justify-content-end dataTables_filter" id="dataTable_filter">
+                    <div class="col d-flex align-items-lg-center" style="width: 100%;height: 30px;"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" style="margin: 6px;"><button class="btn btn-primary d-flex justify-content-center align-items-center" type="button" style="height: 30px;background: rgb(32,113,250);color: rgb(255,255,255);width: 117px;font-size: 12px;margin: 7px;border-color: #ffffff;">검색 하기</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+</html>
