@@ -1,17 +1,18 @@
 $(".roadmapTitle").on("click", function(){
-    console.log("hi");
-    console.log($(this));
-    console.log($(this).next().attr("id"));
-    $(this).css("display", "none");
-    $(this).next().css("display", "flex");
+    // console.log("hi");
+    // console.log($(this));
+    // console.log($(this).next().attr("class"));
+    $(this).next().slideToggle("slow");
+    // $(this).css("display", "none");
+    // $(this).next().css("display", "flex");
 });
-$(".roadmapContent").on("click", function(){
-    console.log("hi");
-    console.log($(this));
-    console.log($(this).next().attr("id"));
-    $(this).css("display", "none");
-    $(this).prev().css("display", "flex");
-});
+// $(".roadmapContent").on("click", function(){
+//     console.log("hi");
+//     console.log($(this));
+//     console.log($(this).next().attr("id"));
+//     $(this).css("display", "none");
+//     $(this).prev().css("display", "flex");
+// });
 
 // function onClickRoadMap(e){
 //     console.log(e.id);
