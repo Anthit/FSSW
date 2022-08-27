@@ -21,6 +21,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String url = Optional.ofNullable(
                 (String) request.getSession().getAttribute("referer")
                 ).orElse("/main");
+        if (url.equals("/main/login")) url = "/main";
         response.sendRedirect(url);
     }
 }
