@@ -1,7 +1,7 @@
 $("#com-btn-save").click(function () {
     let data = {
         "boardId": $("#boardId").val(),
-        "content": $("#com-content").val()
+        "contentvalue": $("#com-content").val()
     };
 
     $.ajax({
@@ -18,4 +18,6 @@ $("#com-btn-save").click(function () {
             alert("error");
         }
     })
+
+
 })

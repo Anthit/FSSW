@@ -29,11 +29,15 @@ public class CommentService {
 //        item.setStockQuantity(stockQuantity);
 //    }
 
-    public List<Comment> commentList() {
-        return commentRepository.findAll();
+    public List<Comment> commentList(Long id) {
+        return commentRepository.findComment(id);
     }
 
     public Comment findOne(Long id) {
         return commentRepository.findOne(id);
     }
+
+
+
 }
+

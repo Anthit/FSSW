@@ -1,6 +1,8 @@
 package com.ssw.fssw.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jdk.jfr.Category;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,8 +37,10 @@ public class Community {
     @Column(name="Community_content",length = 1000)
     private String contents;
 
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd 'T' HH:mm:ss", timezone = "Asia/Seoul")
     @Column(name="Community_date")
-    private LocalDateTime date;
+    private LocalDateTime date = LocalDateTime.now();
 
     @OneToMany(mappedBy = "community")
     private List<Comment> comments = new ArrayList<>();

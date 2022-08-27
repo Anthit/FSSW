@@ -6,6 +6,7 @@ import com.ssw.fssw.repository.CommentApiRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,13 +27,21 @@ public class CommentController {
     @PostMapping(produces = "application/json; charset=UTF-8")
     public String saveComment(@RequestBody Map<String, String> map) {
         Comment comment = new Comment();
-        comment.setText(map.get("content"));
+        comment.setText(map.get("contentvalue"));
         Community community = communityService.findOne(Long.parseLong(map.get("boardId")));
         comment.setCommunity(community);
+        //추가 구현 필요
+        //그룹 추가
+        //comment.setGroup();
+        //오더 추가
+        //comment.setOrder();
+        //클래스 추가
+        //comment.setFloor();
+
 
         commentService.saveComment(comment);
 
-        return map.get("content");
+        return map.get("contentvalue");
     }
 
     @GetMapping("/delete")
@@ -47,8 +56,13 @@ public class CommentController {
         return commentApiRepository.findById(id).get();
     }
 
-    @PostMapping("/save")
-    public String save(Comment comment) {
+
+    @PostMapping("/updatecomment")
+    public String update(@RequestParam("Commentcontent") String UpdatedText, @RequestParam("comment-id") Long id) {
+        Comment comment;
+        comment=commentService.findOne(id);
+
+        comment.setText(UpdatedText);
         commentApiRepository.save(comment);
         return "redirect:/community/{id}/comDetail";
     }

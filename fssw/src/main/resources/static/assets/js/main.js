@@ -6,14 +6,25 @@ $(document).ready(function () {
         var text = $(this).text();
 
         if (text === 'Edit') {
+
             $.get(href, function (comments, status) {
-                $('.myForm #content').val(comments.text);
+                $('.myForm #Commentcontent').val(comments.text);
+                $('.myForm #comment-id').val(comments.id);
 
             });
-            $('.myForm #exampleModal').modal();
+        }
+        $('.myForm #exampleModal').modal();
+
+
+        if (text === '대댓글 입력') {
+
+
+            $('.myFormSmallComment #smallCommentModal').modal();
+
         }
 
     });
+
 
     $('.table .delBtn').on('click', function (event) {
         event.preventDefault();
@@ -21,4 +32,6 @@ $(document).ready(function () {
         $('#myModal #delRef').attr('href', href);
         $('#myModal').modal();
     });
+
+
 });

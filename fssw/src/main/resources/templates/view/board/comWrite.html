@@ -52,7 +52,13 @@
                                 <div class="card-body p-sm-5">
                                     <h2 class="text-center mb-4"></h2>
                                     <form th:action="@{/community/comWrite}" th:object="${comForm}" method="post"
-                                          style="width: 100%;height: 100%;">
+                                          style="width: 100%;height: 100%;"  onsubmit="alert('작성이 완료 되었습니다.');">
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="date" style="width: 40.8px;margin: 2px;">
+                                                제목</p>
+                                            <input class="form-control" th:value="${comForm.localDateTime}" type="hidden" name="제목"
+                                                   placeholder="제목을 입력하세요"/>
+                                        </div>
                                         <div class="form-group">
                                             <p class="text-center" th:for="title" style="width: 40.8px;margin: 2px;">
                                                 제목</p>
@@ -66,11 +72,12 @@
                                                       placeholder="내용을 입력하세요"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <p style="margin: 2px;">카테고리</p><select th:field="*{category}" class="form-select">
+                                            <p style="margin: 2px;">카테고리</p><select th:field="*{category}"
+                                                                                    class="form-select">
                                             <optgroup label>
-                                                <option value="12">연애 상담</option>
-                                                <option value="13">팀플 상담</option>
-                                                <option value="14">공부 상담</option>
+                                                <option value="1">연애 상담</option>
+                                                <option value="2">팀플 상담</option>
+                                                <option value="3">공부 상담</option>
                                             </optgroup>
                                         </select>
                                         </div>
@@ -79,10 +86,11 @@
                                         <div class="row" style="height: 20%;">
                                             <div class="col d-flex justify-content-center align-items-center"
                                                  style="width: 100%;height: 30%;padding: 0px;">
-                                                <button class="btn btn-primary text-start d-flex" type="button">취소
-                                                </button>
+                                                <a class="btn btn-primary text-start d-flex" href="/community"
+                                                   type="button">취소
+                                                </a>
                                                 <div style="width: 20px;"></div>
-                                                <button class="btn btn-primary" type="submit">게시글 입력</button>
+                                                <input id="commit-write" class="btn btn-primary" type="submit"/>
                                             </div>
                                         </div>
                                     </form>
@@ -96,48 +104,6 @@
     </div>
 </div>
 </div>
-<!--    <div class="container-fluid">-->
-<!--        <div class="card shadow" style="width: 100%;margin-top: 100px;">-->
-<!--            <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">일반 게시글 작성</span></div>-->
-<!--            <div class="card-body" style="height: 100%;width: 100%;">-->
-<!--                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info" style="height: 401.1px;">-->
-<!--                    <table class="table my-0" id="dataTable">-->
-<!--                        <thead>-->
-<!--                            <tr></tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                            <tr>-->
-<!--                                <td>제목</td>-->
-<!--                                <td><input type="text" placeholder="제목을 입력해주세요." style="width: 100%;"><br></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="height: 100px;width: 100px;">설명</td>-->
-<!--                                <td><textarea class="bg-white border rounded border-1 shadow-sm" id="message-1" name="설명" rows="8" cols="0" placeholder="설명을 입력해주세요." style="width: 100%;"></textarea></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="width: 103px;">카테고리</td>-->
-<!--                                <td><select>-->
-<!--                                        <option value="12" selected="">&#45;&#45;&#45;&#45;선택 해주세요&#45;&#45;&#45;&#45;</option>-->
-<!--                                        <option value="13">연애 질문</option>-->
-<!--                                        <option value="14">팀원 질문</option>-->
-<!--                                        <option value="12">코딩내용 질문</option>-->
-<!--                                    </select></td>-->
-<!--                            </tr>-->
-<!--                            <tr></tr>-->
-<!--                        </tbody>-->
-<!--                        <tfoot>-->
-<!--                            <tr></tr>-->
-<!--                        </tfoot>-->
-<!--                    </table>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col d-flex justify-content-center align-items-center" style="width: 100%;height: 40px;padding: 0px;"><button class="btn btn-primary text-start d-flex" type="button" style="background: rgb(32,113,250);border-color: rgb(255,255,255);">취소</button>-->
-<!--                        <div style="width: 20px;"></div><button class="btn btn-primary" type="button" style="background: rgb(32,113,250);border-color: rgb(255,255,255);">게시글 입력</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 <div class="fixed-bottom"
      style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
     <ul class="nav nav-tabs"
@@ -169,11 +135,15 @@
                 style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
     </ul>
 </div>
+<script th:src="@{/assets/bootstrap/js/jquery-3.6.0.min.js}"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
 <script th:href="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
 <script th:href="@{/assets/js/bs-init.js}"></script>
 <script th:href="@{/assets/js/agency.js}"></script>
+<script th:href="@{/assets/js/alert.js}"></script>
 <script th:href="@{/assets/js/roadmap.js}"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 
 </html>

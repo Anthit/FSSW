@@ -21,9 +21,13 @@ public class CommentRepository {
         return em.find(Comment.class, id);
     }
 
-    public List<Comment> findAll() {
+    public List<Comment> findAll(Long id) {
         return em.createQuery("select o from Comment o", Comment.class)
                 .getResultList();
     }
 
+    public List<Comment> findComment(Long id){
+        String s="select o from Comment o where comment_community_id="+id;
+        return em.createQuery(s,Comment.class).getResultList();
+    }
 }

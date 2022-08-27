@@ -1,6 +1,7 @@
 package com.ssw.fssw.controller.coummuity;
 
 
+import com.ssw.fssw.controller.comment.CommentForm;
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
 import com.ssw.fssw.repository.CommentApiRepository;
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -47,12 +50,14 @@ public class CommunityController {
         return "view/board/comWrite";
     }
 
+
     @PostMapping("/comWrite")
     public String saveWrite(CommunityForm form) {
 
         Community community = new Community();
         community.setTitle(form.getTitle());
         community.setContents(form.getContent());
+        community.setDate(form.getLocalDateTime().now());
         community.setCategory(form.getCategory());
 
         communityService.saveCommunity(community);
@@ -61,18 +66,25 @@ public class CommunityController {
 
     @GetMapping("/{id}/comDetail")
     public String pageDetail(@PathVariable("id") Long id, Model model) {
+        //community 부분
         Community community = communityService.findOne(id);
-
         CommunityForm form = new CommunityForm();
         form.setTitle(community.getTitle());
         form.setContent(community.getContents());
-
+        form.setLocalDateTime(community.getDate().now());
 
         model.addAttribute("community", community);
-        // comment 부분
 
-        List<Comment> commentList = commentService.commentList();
+        // comment 부분
+        List<Comment> commentList = commentService.commentList(id);
+        Comment comment = commentService.findOne(id);
+
+        model.addAttribute("comment",comment);
         model.addAttribute("comments", commentList);
+
+        //re-comment 부분
+
+
         return "view/board/comDetail";
     }
 
