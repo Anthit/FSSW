@@ -18,9 +18,9 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         log.info("Login Success !!!");
-        Optional<String> url = Optional.ofNullable(
-                ( (Optional<String>) request.getSession().getAttribute("referer") )
-                        .orElse("/main"));
-        response.sendRedirect(url.get());
+        String url = Optional.ofNullable(
+                (String) request.getSession().getAttribute("referer")
+                ).orElse("/main");
+        response.sendRedirect(url);
     }
 }
