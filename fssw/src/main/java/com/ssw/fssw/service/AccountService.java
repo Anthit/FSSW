@@ -30,9 +30,9 @@ public class AccountService {
 
     }
 
-  /*  public List<Account> findAccounts(){
+    public List<Account> findAccounts(){
         return accountRepository.findAll();
-    }*/
+    }
     public Optional<Account> findOne(Long accountNum){
         return accountRepository.findById(accountNum);
     }
