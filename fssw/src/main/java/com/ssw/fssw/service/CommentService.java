@@ -32,10 +32,6 @@ public class CommentService {
         return commentRepository.findOne(id);
     }
 
-    public List<Comment> findPreId(Long id){
-        return commentApiRepository.findLastById(id);
-
-    }
 
 }
 

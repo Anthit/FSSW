@@ -30,4 +30,5 @@ public class CommentRepository {
         String s="select o from Comment o where comment_community_id="+id;
         return em.createQuery(s,Comment.class).getResultList();
     }
+
 }

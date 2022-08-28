@@ -24,6 +24,7 @@ $(document).ready(function () {
         }
 
     });
+    
 
 
     $('.table .delBtn').on('click', function (event) {

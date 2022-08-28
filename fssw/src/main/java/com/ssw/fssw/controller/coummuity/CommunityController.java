@@ -5,6 +5,7 @@ import com.ssw.fssw.controller.comment.CommentForm;
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
 import com.ssw.fssw.repository.CommentApiRepository;
+import com.ssw.fssw.repository.CommentRepository;
 import com.ssw.fssw.repository.CommunityApiRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
@@ -31,6 +32,8 @@ public class CommunityController {
     private final CommunityService communityService;
     private final CommunityApiRepository communityApiRepository;
     private final CommentService commentService;
+
+    private final CommentApiRepository commentApiRepository;
 
     @GetMapping
     public String communityList(Model model, @PageableDefault Pageable pageable ,@RequestParam(required = false,defaultValue = "") String search) {
@@ -78,13 +81,19 @@ public class CommunityController {
         // comment 부분
         List<Comment> commentList = commentService.commentList(id);
 
-        Comment comment = commentService.findOne(id);
 
-        model.addAttribute("comment",comment);
+        //댓글 작성부분
+        CommentForm commentForm = new CommentForm();
+        Long commentLastId = commentApiRepository.getCommentLastId();
+        System.out.println("commentLastId = " + commentLastId);
+        commentForm.setId(commentLastId.longValue());
+
+        //대댓글 작성 부분
+        Comment comment = new Comment();
+        commentForm.setOrder(commentApiRepository.getCommentLastOrder());
+        commentForm.setGroup(comment.getGroup());
+        model.addAttribute("comment",commentForm);
         model.addAttribute("comments", commentList);
-
-        //re-comment 부분
-
 
         return "view/board/comDetail";
     }
@@ -98,6 +107,11 @@ public class CommunityController {
         form.setContent(community.getContents());
 
         model.addAttribute("updateform", form);
+
+
+
+
+        //re-comment 부분
 
 
         return "view/board/comModify";

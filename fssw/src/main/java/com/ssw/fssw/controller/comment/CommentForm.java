@@ -6,5 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CommentForm {
+    private Long id;
+    private int order;
+    private int group;
     private String text;
 }

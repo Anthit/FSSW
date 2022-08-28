@@ -27,7 +27,7 @@ public class CommentController {
         comment.setText(map.get("contentvalue"));
         Community community = communityService.findOne(Long.parseLong(map.get("boardId")));
         comment.setCommunity(community);
-        //추가 구현 필요
+        //댓글 저장 기능
         //그룹 추가
         comment.setGroup(Integer.parseInt(map.get("reCommentGroup")));
         //오더 추가
@@ -39,6 +39,27 @@ public class CommentController {
         commentService.saveComment(comment);
 
         return map.get("contentvalue");
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/reComment" , produces = "application/json; charset=UTF-8")
+    public String saveReComment(@RequestBody Map<String, String> map) {
+        Comment comment = new Comment();
+        comment.setText(map.get("reComment-text"));
+        Community community = communityService.findOne(Long.parseLong(map.get("re-boardId")));
+        comment.setCommunity(community);
+        //대댓글 저장 기능
+        //그룹 추가 사항-> 현재 id의 group값을 받아와야함.
+        comment.setGroup(Integer.parseInt(map.get("ano-reComment-group")));
+        //오더 추가
+        comment.setOrder(Integer.parseInt(map.get("ano-reComment-order")));
+        //클래스 추가
+        comment.setFloor(Integer.parseInt(map.get("ano-reComment-floor")));
+
+
+        commentService.saveComment(comment);
+
+        return map.get("reComment-text");
     }
 
     @GetMapping("/delete")
