@@ -33,9 +33,9 @@ public class JpaAccountRepository implements AccountRepository{
         return result.stream().findAny();
     }
 
-    @Override
+/*    @Override
     public List<Account> findAll() {
         return em.createQuery("select a from Account as a", Account.class)
                 .getResultList();
-    }
+    }*/
 }

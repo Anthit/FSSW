@@ -2,9 +2,6 @@ package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Account;
 import com.ssw.fssw.repository.AccountRepository;
-import com.ssw.fssw.repository.MemoryAccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -33,9 +30,9 @@ public class AccountService {
 
     }
 
-    public List<Account> findAccounts(){
+  /*  public List<Account> findAccounts(){
         return accountRepository.findAll();
-    }
+    }*/
     public Optional<Account> findOne(Long accountNum){
         return accountRepository.findById(accountNum);
     }

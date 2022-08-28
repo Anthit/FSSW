@@ -11,6 +11,6 @@ public interface AccountRepository {
     Optional<Account> findById(Long num);
     //id로 회원을 찾는것
     Optional<Account> findByEmail(String email);
-    List<Account> findAll();
+    //List<Account> findAll();
     //지금까지 저장된 모든 회원리스트 반환
 }

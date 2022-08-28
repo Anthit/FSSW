@@ -1,15 +1,10 @@
 package com.ssw.fssw;
 
-import com.ssw.fssw.aop.TimeTraceAop;
 import com.ssw.fssw.repository.AccountRepository;
-import com.ssw.fssw.repository.JpaAccountRepository;
-import com.ssw.fssw.repository.MemoryAccountRepository;
 import com.ssw.fssw.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.persistence.EntityManager;
 
 @Configuration
 public class SpringConfig {
