@@ -1,7 +1,10 @@
 $("#com-btn-save").click(function () {
     let data = {
         "boardId": $("#boardId").val(),
-        "contentvalue": $("#com-content").val()
+        "contentvalue": $("#com-content").val(),
+        "reCommentGroup": $("#reComment-group").val(),
+        "reCommentFloor": $("#reComment-floor").val(),
+        "reCommentOrder": $("#reComment-order").val()
     };
 
     $.ajax({
@@ -19,5 +22,13 @@ $("#com-btn-save").click(function () {
         }
     })
 
+
+})
+
+$("#reComment-save").click(function (){
+    let reData ={
+
+
+    }
 
 })

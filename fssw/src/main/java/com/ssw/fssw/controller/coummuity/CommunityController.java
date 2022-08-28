@@ -77,6 +77,7 @@ public class CommunityController {
 
         // comment 부분
         List<Comment> commentList = commentService.commentList(id);
+
         Comment comment = commentService.findOne(id);
 
         model.addAttribute("comment",comment);

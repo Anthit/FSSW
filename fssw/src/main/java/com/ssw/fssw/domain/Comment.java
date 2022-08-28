@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@DynamicInsert
 @Getter
 @Setter
+@DynamicInsert
 @Table(name="Comment")
 public class Comment {
 
@@ -34,15 +34,13 @@ public class Comment {
     @Column(name = "comment_text", length = 1000)
     public String text;
 
-    @ColumnDefault("1")
+    @ColumnDefault(value = "1")
     @Column(name="comment_group")
     public int group;
 
-    @ColumnDefault("1")
     @Column(name="comment_class")
     public int floor;
 
-    @ColumnDefault("1")
     @Column(name="comment_order")
     public int order;
 

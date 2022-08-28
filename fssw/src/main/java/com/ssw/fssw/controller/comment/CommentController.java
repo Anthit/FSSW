@@ -6,11 +6,9 @@ import com.ssw.fssw.repository.CommentApiRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @Controller
@@ -20,7 +18,6 @@ public class CommentController {
 
     private final CommentService commentService;
     private final CommunityService communityService;
-
     private final CommentApiRepository commentApiRepository;
 
     @ResponseBody
@@ -32,11 +29,11 @@ public class CommentController {
         comment.setCommunity(community);
         //추가 구현 필요
         //그룹 추가
-        //comment.setGroup();
+        comment.setGroup(Integer.parseInt(map.get("reCommentGroup")));
         //오더 추가
-        //comment.setOrder();
+        comment.setOrder(Integer.parseInt(map.get("reCommentFloor")));
         //클래스 추가
-        //comment.setFloor();
+        comment.setFloor(Integer.parseInt(map.get("reCommentOrder")));
 
 
         commentService.saveComment(comment);

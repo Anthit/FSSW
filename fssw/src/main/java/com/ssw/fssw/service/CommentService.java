@@ -2,6 +2,7 @@ package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
+import com.ssw.fssw.repository.CommentApiRepository;
 import com.ssw.fssw.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommentService {
 
+    private final CommentApiRepository commentApiRepository;
     private final CommentRepository commentRepository;
 
     @Transactional
@@ -21,13 +23,6 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-//    @Transactional
-//    public void updateCommunity(Long id, String title, String contents) {
-//       communi
-//        item.setName(name);
-//        item.setPrice(price);
-//        item.setStockQuantity(stockQuantity);
-//    }
 
     public List<Comment> commentList(Long id) {
         return commentRepository.findComment(id);
@@ -37,7 +32,10 @@ public class CommentService {
         return commentRepository.findOne(id);
     }
 
+    public List<Comment> findPreId(Long id){
+        return commentApiRepository.findLastById(id);
 
+    }
 
 }
 
