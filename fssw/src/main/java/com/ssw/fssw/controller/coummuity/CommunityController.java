@@ -37,7 +37,6 @@ public class CommunityController {
 
     @GetMapping
     public String communityList(Model model, @PageableDefault Pageable pageable ,@RequestParam(required = false,defaultValue = "") String search) {
-//        Page<Community> communityList = communityApiRepository.findAll(pageable);
         Page<Community> communityList = communityApiRepository.findByTitleContainingOrContentsContaining(search,search,pageable);
         int startPage = Math.max(1, communityList.getPageable().getPageNumber() - 4); //현재 페이지 넘버를 가져온다.
         int endPage = Math.min(communityList.getTotalPages(), communityList.getPageable().getPageNumber() + 4);
@@ -89,9 +88,7 @@ public class CommunityController {
         commentForm.setId(commentLastId.longValue());
 
         //대댓글 작성 부분
-        Comment comment = new Comment();
         commentForm.setOrder(commentApiRepository.getCommentLastOrder());
-        commentForm.setGroup(comment.getGroup());
         model.addAttribute("comment",commentForm);
         model.addAttribute("comments", commentList);
 
@@ -107,12 +104,6 @@ public class CommunityController {
         form.setContent(community.getContents());
 
         model.addAttribute("updateform", form);
-
-
-
-
-        //re-comment 부분
-
 
         return "view/board/comModify";
     }

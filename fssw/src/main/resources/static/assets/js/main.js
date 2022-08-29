@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.table .eBtn').on('click', function (event) {
+    $('.reBtn ,.table .eBtn').on('click', function (event) {
         event.preventDefault();
         var href = $(this).attr('href');
         var text = $(this).text();
@@ -18,7 +18,9 @@ $(document).ready(function () {
 
         if (text === '대댓글 입력') {
 
-
+            $.get(href, function (comments, status) {
+                $('.myFormSmallComment #ano-reComment-group').val(comments.group).hide();
+            });
             $('.myFormSmallComment #smallCommentModal').modal();
 
         }
