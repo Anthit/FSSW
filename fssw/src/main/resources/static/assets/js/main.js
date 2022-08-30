@@ -9,7 +9,7 @@ $(document).ready(function () {
 
             $.get(href, function (comments, status) {
                 $('.myForm #Commentcontent').val(comments.text);
-                $('.myForm #comment-id').val(comments.id);
+                $('.myForm #comment-id').val(comments.id).hide();
 
             });
         }

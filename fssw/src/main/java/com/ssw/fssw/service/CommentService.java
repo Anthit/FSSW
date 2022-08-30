@@ -28,6 +28,7 @@ public class CommentService {
         return commentRepository.findComment(id);
     }
 
+
     public Comment findOne(Long id) {
         return commentRepository.findOne(id);
     }

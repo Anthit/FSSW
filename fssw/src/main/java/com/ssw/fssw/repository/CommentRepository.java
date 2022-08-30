@@ -27,8 +27,10 @@ public class CommentRepository {
     }
 
     public List<Comment> findComment(Long id){
-        String s="select o from Comment o where comment_community_id="+id;
+        //2차원 정렬로 내림차순으로 그룹은 하면서 , 그 다음 정렬은 코드로 나누는 것을 참고했다.
+        String s="select o from Comment o where comment_community_id="+id+" order by comment_group desc , comment_code asc";
         return em.createQuery(s,Comment.class).getResultList();
     }
+
 
 }

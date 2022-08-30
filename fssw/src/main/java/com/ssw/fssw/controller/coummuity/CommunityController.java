@@ -13,15 +13,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -77,14 +74,13 @@ public class CommunityController {
 
         model.addAttribute("community", community);
 
-        // comment 부분
+        // commentList 부분
         List<Comment> commentList = commentService.commentList(id);
 
 
         //댓글 작성부분
         CommentForm commentForm = new CommentForm();
         Long commentLastId = commentApiRepository.getCommentLastId();
-        System.out.println("commentLastId = " + commentLastId);
         commentForm.setId(commentLastId.longValue());
 
         //대댓글 작성 부분
