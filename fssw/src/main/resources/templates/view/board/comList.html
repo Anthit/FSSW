@@ -93,59 +93,52 @@
                 <table class="table my-0" id="dataTable">
                     <thead>
                     <tr>
-                        <th>게시물</th>
+                        <td>카테고리</td>
+                        <td>제목</td>
+                        <td>작성 날짜</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="flash animated" th:each="communityList : ${data}">
                         <td class="flash animated" th:text="${communityList.category}"></td>
-                        <td></td>
                         <td><a th:href="@{/community/{id}/comDetail (id=${communityList.id})}"
                                th:text="${communityList.title}"></a></td>
-                        <td th:text="${#temporals.format(communityList.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
-
+                        <td th:text="${#temporals.format(communityList.date, 'yyyy-MM-dd')}"></td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td></td>
-                    </tr>
-                    </tfoot>
                 </table>
-            </div>
-            <hr/>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link"
-                           th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
-                           th:href="@{/community(page=${data.pageable.pageNumber - 1}, search=${param.search})}">이전</a>
-                    </li>
-                    <li class="page-item"
-                        th:each="i: ${#numbers.sequence(startPage,endPage)}">
-                        <a class="page-link"
-                           th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
-                           href="#"
-                           th:text="${i}"
-                           th:href="@{/community(page=${i - 1},search=${param.search})}">1</a>
-                    </li>
-                    <li class="page-item"
-                        th:classappend="${data.totalPages == data.pageable.pageNumber + 1} ? 'disabled'">
-                        <a class="page-link"
-                           th:href="@{/community(page=${data.pageable.pageNumber + 1},search=${param.search})}"
-                           href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <form class="row g-3 justify-content-center" method="GET" th:action="@{/community}">
-                <div class="col-auto" >
-                    <label for="search" class="visually-hidden">검색</label>
-                    <input type="text" class="form-control" id="search" name="search" th:value="${param.search}">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">검색</button>
-                </div>
-            </form>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link"
+                               th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
+                               th:href="@{/community(page=${data.pageable.pageNumber - 1}, search=${param.search})}">이전</a>
+                        </li>
+                        <li class="page-item"
+                            th:each="i: ${#numbers.sequence(startPage,endPage)}">
+                            <a class="page-link"
+                               th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
+                               href="#"
+                               th:text="${i}"
+                               th:href="@{/community(page=${i - 1},search=${param.search})}">1</a>
+                        </li>
+                        <li class="page-item"
+                            th:classappend="${data.totalPages == data.pageable.pageNumber + 1} ? 'disabled'">
+                            <a class="page-link"
+                               th:href="@{/community(page=${data.pageable.pageNumber + 1},search=${param.search})}"
+                               href="#">다음</a>
+                        </li>
+                    </ul>
+                </nav>
+                <form class="row g-3 justify-content-center" method="GET" th:action="@{/community}">
+                    <div class="col-auto">
+                        <label for="search" class="visually-hidden">검색</label>
+                        <input type="text" class="form-control" id="search" name="search" th:value="${param.search}">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">검색</button>
+                    </div>
+                </form>
         </div>
     </div>
 </div>
