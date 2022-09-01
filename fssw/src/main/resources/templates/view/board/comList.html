@@ -99,7 +99,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="flash animated" th:each="communityList : ${data}">
+                    <!-- 만약 num값이 1이라면 1번에 해당하는 값을 출력해줍니다. -->
+                    <tr class="flash animated" th:each="communityList : ${data}" th:if="${communityList.num == 1}">
                         <td class="flash animated" th:text="${communityList.category}"></td>
                         <td><a th:href="@{/community/{id}/comDetail (id=${communityList.id})}"
                                th:text="${communityList.title}"></a></td>
@@ -133,12 +134,13 @@
                 <form class="row g-3 justify-content-center" method="GET" th:action="@{/community}">
                     <div class="col-auto">
                         <label for="search" class="visually-hidden">검색</label>
-                        <input type="text" class="form-control" id="search" name="search" th:value="${param.search}">
+                        <input type="text" class="form-control" id="search" name="search" th:value="${param.search}" required/>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">검색</button>
                     </div>
                 </form>
+            </div>
         </div>
     </div>
 </div>

@@ -16,5 +16,9 @@ public class CommunityForm {
 
     private int category;
 
+    private int board_num = 1;
+
+    private int findBoard_num = 2;
+
     private LocalDateTime localDateTime;
 }

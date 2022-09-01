@@ -32,5 +32,10 @@ public class CommentRepository {
         return em.createQuery(s,Comment.class).getResultList();
     }
 
+    public List<Comment> findDeleteAll(Long id){
+        //해당 그룹의 값을 찾아주면 댓글 밑 대댓글 삭제까지 구현이 완료된다. 앞으로 수정해야하는 상황.
+        String s="SELECT comment_group from Comment where comment_group="+id+" group by comment_group";
+        return em.createQuery(s,Comment.class).getResultList();
+    }
 
 }

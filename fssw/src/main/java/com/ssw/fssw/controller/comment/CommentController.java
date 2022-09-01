@@ -3,6 +3,7 @@ package com.ssw.fssw.controller.comment;
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
 import com.ssw.fssw.repository.CommentApiRepository;
+import com.ssw.fssw.repository.CommentRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,8 @@ public class CommentController {
     private final CommentService commentService;
     private final CommunityService communityService;
     private final CommentApiRepository commentApiRepository;
+
+    private final CommentRepository commentRepository;
 
     @ResponseBody
     @PostMapping(produces = "application/json; charset=UTF-8")
@@ -42,7 +45,7 @@ public class CommentController {
     }
 
     @ResponseBody
-    @PostMapping(value = "/reComment" , produces = "application/json; charset=UTF-8")
+    @PostMapping(value = "/reComment", produces = "application/json; charset=UTF-8")
     public String saveReComment(@RequestBody Map<String, String> map) {
         Comment comment = new Comment();
         comment.setText(map.get("reComment-text"));
@@ -63,8 +66,15 @@ public class CommentController {
     }
 
     @GetMapping("/delete")
-    public String deleteCommunity(long id){
-        commentApiRepository.deleteById(id);
+    public String deleteCommunity(long id) {
+        Comment comment = commentService.findOne(id);
+        if (comment.floor == 1) {
+            commentApiRepository.deleteById(id);
+        }
+        if (comment.floor == 2) {
+            commentApiRepository.deleteById(id);
+        }
+        // 수정해야함.
         return "redirect:/community/{id}/comDetail";
     }
 
@@ -78,7 +88,7 @@ public class CommentController {
     @PostMapping("/updatecomment")
     public String update(@RequestParam("Commentcontent") String UpdatedText, @RequestParam("comment-id") Long id) {
         Comment comment;
-        comment=commentService.findOne(id);
+        comment = commentService.findOne(id);
 
         comment.setText(UpdatedText);
         commentApiRepository.save(comment);

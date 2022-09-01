@@ -21,7 +21,7 @@ public class Community {
     @Column(name="Community_code")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Community_user_id")
     private User user;
 
@@ -42,6 +42,6 @@ public class Community {
     @Column(name="Community_date")
     private LocalDateTime date = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "community")
+    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 }

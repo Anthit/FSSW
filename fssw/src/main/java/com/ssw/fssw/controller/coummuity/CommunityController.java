@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -59,6 +60,7 @@ public class CommunityController {
         community.setContents(form.getContent());
         community.setDate(form.getLocalDateTime().now());
         community.setCategory(form.getCategory());
+        community.setNum(form.getBoard_num());
 
         communityService.saveCommunity(community);
         return "redirect:/community";

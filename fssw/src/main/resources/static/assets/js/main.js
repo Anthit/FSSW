@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.reBtn ,.table .eBtn').on('click', function (event) {
+    $('.table .eBtn').on('click', function (event) {
         event.preventDefault();
         var href = $(this).attr('href');
         var text = $(this).text();
@@ -15,6 +15,12 @@ $(document).ready(function () {
         }
         $('.myForm #exampleModal').modal();
 
+    });
+
+    $('.table .reBtn').on('click', function (event) {
+        event.preventDefault();
+        var href = $(this).attr('href');
+        var text = $(this).text();
 
         if (text === '대댓글 입력') {
 

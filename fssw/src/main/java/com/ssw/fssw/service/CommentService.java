@@ -5,6 +5,7 @@ import com.ssw.fssw.domain.Community;
 import com.ssw.fssw.repository.CommentApiRepository;
 import com.ssw.fssw.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +34,12 @@ public class CommentService {
         return commentRepository.findOne(id);
     }
 
+
+//    @Transactional
+//    @Modifying
+//    public List<Comment> delComList(Long id){
+//       return commentRepository.findDeleteAll(id);
+//    }
 
 }
 

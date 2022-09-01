@@ -1,11 +1,17 @@
 $("#com-btn-save").click(function () {
     let data = {
         "boardId": $("#boardId").val(),
-        "contentvalue": $("#com-content").val(),
+        "contentvalue": $("#com_content").val(),
         "reCommentGroup": $("#reComment-group").val(),
         "reCommentFloor": $("#reComment-floor").val(),
         "reCommentOrder": $("#reComment-order").val()
     };
+
+    if($("#com_content").val() == ""){
+        alert("댓글을 입력하세요!");
+        $("#com_content").focus();
+        return false;
+    }
 
     $.ajax({
         type: "POST",
@@ -34,6 +40,18 @@ $("#reComment-save").click(function (){
         "ano-reComment-group": $("#ano-reComment-group").val()
 
     };
+
+    //유효성 검사하는곳.
+    $("#reComment_Close").click(function (){
+        document.getElementById("reComment_valid").innerHTML="";
+    });
+    if($("#reComment-text").val() == ""){
+        document.getElementById("reComment_valid").innerHTML="댓글을 입력해주세요";
+        $("#reComment-text").focus();
+        return false;
+    }
+    //
+
 
     $.ajax({
         type: "POST",
