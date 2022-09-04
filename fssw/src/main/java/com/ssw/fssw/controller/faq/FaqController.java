@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/faq")
 public class FaqController {
-    @RequestMapping("")
+    @RequestMapping
     public String faq(){
         return "view/faq/faq";
     }

@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -68,12 +69,15 @@ public class CommentController {
     @GetMapping("/delete")
     public String deleteCommunity(long id) {
         Comment comment = commentService.findOne(id);
-        if (comment.floor == 1) {
-            commentApiRepository.deleteById(id);
-        }
-        if (comment.floor == 2) {
-            commentApiRepository.deleteById(id);
-        }
+//        int updatedeletetext = commentApiRepository.updateDeleteText("삭제된 댓글입니다.");
+//        if (comment.floor == 1 && commentService.groupList(id).size() > 1) {
+//            comment.setText(String.valueOf(updatedeletetext));
+            if(comment.floor==1){
+                commentService.groupCommentDelete(id);
+            }
+            if(comment.floor==2) {
+                commentApiRepository.deleteById(id);
+            }
         // 수정해야함.
         return "redirect:/community/{id}/comDetail";
     }

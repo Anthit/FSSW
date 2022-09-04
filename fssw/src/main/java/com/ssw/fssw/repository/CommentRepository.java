@@ -2,7 +2,9 @@ package com.ssw.fssw.repository;
 
 import com.ssw.fssw.domain.Comment;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -26,16 +28,30 @@ public class CommentRepository {
                 .getResultList();
     }
 
-    public List<Comment> findComment(Long id){
+    public List<Comment> findComment(Long id) {
         //2차원 정렬로 내림차순으로 그룹은 하면서 , 그 다음 정렬은 코드로 나누는 것을 참고했다.
-        String s="select o from Comment o where comment_community_id="+id+" order by comment_group desc , comment_code asc";
-        return em.createQuery(s,Comment.class).getResultList();
+        String s = "select o from Comment o where comment_community_id=" + id + " order by comment_group desc , comment_code asc";
+        return em.createQuery(s, Comment.class).getResultList();
     }
 
-    public List<Comment> findDeleteAll(Long id){
+    public List<Comment> findGroupAll(Long id) {
         //해당 그룹의 값을 찾아주면 댓글 밑 대댓글 삭제까지 구현이 완료된다. 앞으로 수정해야하는 상황.
-        String s="SELECT comment_group from Comment where comment_group="+id+" group by comment_group";
-        return em.createQuery(s,Comment.class).getResultList();
+        String s = "SELECT o from Comment o group by comment_group HAVING comment_group =" + id;
+        return em.createQuery(s, Comment.class).getResultList();
     }
+
+    public int findGroupDeleteAll(Long id) {
+        //해당 그룹의 값을 찾아주면 댓글 밑 대댓글 삭제까지 구현이 완료된다.
+        String s = "delete Comment where comment_group="+id;
+        return em.createQuery(s).executeUpdate();
+    }
+
+
+//    @Transactional
+//    @Modifying
+//    public Comment updateDeleteText(Long id, String text) {
+//        String s = "update Comment set comment_text ="+ text + " where comment_group=" + id;
+//        return em.createQuery(s, Comment.class).getSingleResult();
+//    }
 
 }

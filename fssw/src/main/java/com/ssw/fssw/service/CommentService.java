@@ -35,11 +35,14 @@ public class CommentService {
     }
 
 
-//    @Transactional
-//    @Modifying
-//    public List<Comment> delComList(Long id){
-//       return commentRepository.findDeleteAll(id);
-//    }
+    public List<Comment> groupList(Long id) {
+        return commentRepository.findGroupAll(id);
+    }
+
+    @Transactional
+    public int groupCommentDelete(Long id) {
+        return commentRepository.findGroupDeleteAll(id);
+    }
 
 }
 
