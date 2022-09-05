@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Untitled</title>
+
     <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/js/bootstrap.min.js}">
+    <link rel="stylesheet" href="/assets/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Tamil+Supplement&amp;display=swap">
@@ -17,144 +21,265 @@
     <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
     <link rel="stylesheet" th:href="@{/assets/css/untitled.css}">
 </head>
+<script th:inline="javascript">
+
+
+</script>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
-        <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;팀원 구하기 게시판</span><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/community" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/hotKeyword" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/faq" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login" style="color: rgb(0,0,0);">로그인</a></li>
-                </ul>
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav"
+     style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
+    <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;팀원 게시판</span>
+        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto text-uppercase">
+                <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
+                <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
+                <li class="nav-item"><a class="nav-link" href="/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
+                <li class="nav-item"><a class="nav-link" href="/hotKeyword" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
+                <li class="nav-item"><a class="nav-link" href="/faq" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login" style="color: rgb(0,0,0);">로그인</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="card shadow" style="margin-top: 100px;">
+        <div class="card-header py-3"><span style="font-weight: bold;color: rgb(32,113,250);">팀원 게시판</span></div>
+        <div class="card-body" style="height: 100%;padding-bottom: 9px;">
+            <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info"
+                 style="height: 100%;">
+                <table class="table my-0">
+                    <thead>
+                    <tr></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${community.title}" class="d-flex justify-content-start align-items-center"
+                            style="font-size: 20px;width: 100%;height: 57px;">
+                            <div class="d-flex justify-content-start align-items-center"
+                                 style="width: 100%;height: 50px;">
+                                <p class="d-flex justify-content-start align-items-center"
+                                   style="width: 100%;height: 50px;padding-bottom: 0px;margin-bottom: 0px;">
+                                    Paragraph</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td th:text="${#temporals.format(community.date, 'yyyy-MM-dd HH:mm:ss')}"
+                            style="font-size: 11px;">2222-11-11
+                        </td>
+                        <td>
+                            <div class="col-11 d-flex" style="height: 22px;">
+                                <a class="btn btn-primary text-center d-flex justify-content-end align-items-center"
+                                   type="button" th:href="@{/findteam/{id}/findModify (id=${community.id})}"
+                                   style="margin: 0px;width: 100%;height: 100%;padding: 2px 17px;font-size: 7px;color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);margin-right: 0px;padding-right: 0px;padding-left: 0px;margin-bottom: 0px;padding-bottom: 0px;margin-top: 0px;padding-top: 0px;">
+                                    <span style="color: rgb(43, 143, 244);">수정</span></a>
+                                <a class="btn btn-primary text-center d-flex justify-content-end align-items-center"
+                                   type="button" th:href="@{/findteam/{id}/delete (id=${community.id})}"
+                                   style="margin: 0px;width: 100%; height: 100%;padding: 0px 0px;font-size: 7px;color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);margin-right: 0px;padding-right: 0px;padding-left: 0px;margin-bottom: 0px;padding-bottom: 0px;margin-top: 0px;padding-top: 0px;">
+                                    <span style="color: rgb(43, 143, 244);">삭제</span></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p th:text="${community.contents}" class="d-table-cell" style="height: 200px;width: 800px;">
+                                이클립스가 좋아요</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="d-md-flex justify-content-md-center">
+                            <form>
+                                <input type="hidden" id="boardId" th:value="${community.id}"/>
+                                <input type="hidden" id="reComment-group" th:value="${comment.id}"/>
+                                <input type="hidden" id="reComment-floor" value="1"/>
+                                <input type="hidden" id="reComment-order" value="1"/>
+                                <div class="col-7 offset-0 d-flex d-xxl-flex justify-content-center justify-content-xxl-center"
+                                     style="width: 100%;">
+                                    <input id="com_content" type="text" class="btn btn-successs"
+                                           style="width: 100%;margin: 3px;"
+                                           placeholder="댓글을 입력해주세요." required/>
+                                    <input id="com-btn-save" value="작성" class="btn btn-primary" type="submit"
+                                           style="height: 38px;width: 80.5px;margin: 2px;background: rgb(32,113,250);border-color: rgb(255,255,255);">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </nav>
-    <div class="fixed-bottom" style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
-        <ul class="nav nav-tabs" style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
-            <li class="nav-item" style="background: rgba(255,0,0,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
-        </ul>
     </div>
+
     <div class="container-fluid">
-        <div class="card shadow" style="margin-top: 100px;">
-            <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">팀원 구하기 게시판</span></div>
-            <div class="card-body" style="height: 550px;padding-bottom: 9px;">
-                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info" style="height: 401.1px;">
-                    <table class="table my-0" id="dataTable">
-                        <thead>
-                            <tr></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="d-flex justify-content-start align-items-center" style="font-size: 20px;width: 100%;height: 57px;">
-                                    <div class="d-flex justify-content-start align-items-center" style="width: 100%;height: 50px;">
-                                        <p class="d-flex justify-content-start align-items-center" style="width: 100%;height: 50px;padding-bottom: 0px;margin-bottom: 0px;">Paragraph</p>
-                                    </div>
-                                    <div><a class="btn btn-primary d-flex justify-content-end" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" href="#collapse-2" role="button" style="background: var(--bs-table-bg);border-color: var(--bs-table-bg);color: rgb(0,0,0);font-size: 10px;margin-right: 5px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;"><span style="color: rgb(0, 25, 255);">변경</span></a>
-                                        <div class="collapse justify-content-center align-items-center" id="collapse-2" style="width: 67px;height: 22px;">
-                                            <div class="col-11 d-flex" style="height: 22px;"><button class="btn btn-primary text-center d-flex justify-content-end align-items-center" type="button" style="margin: 0px;width: 100%;height: 100%;padding: 2px 17px;font-size: 7px;color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);margin-right: 0px;padding-right: 0px;padding-left: 0px;margin-bottom: 0px;padding-bottom: 0px;margin-top: 0px;padding-top: 0px;"><span style="color: rgb(43, 143, 244);">수정</span></button><button class="btn btn-primary text-center d-flex justify-content-end align-items-center" type="button" style="margin: 0px;width: 100%; height: 100%;padding: 0px 0px;font-size: 7px;color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);margin-right: 0px;padding-right: 0px;padding-left: 0px;margin-bottom: 0px;padding-bottom: 0px;margin-top: 0px;padding-top: 0px;"><span style="color: rgb(43, 143, 244);"data-bs-toggle="modal" data-bs-target="#staticBackdrop"
->삭제</span></button>
+        <div class="card shadow" style="width: 100%; height: 100%; margin-top: 20px; margin-bottom: 20px;">
+            <div class="card-header py-3"><span style="font-weight: bold;color: rgb(32,113,250);">댓글창</span></div>
+            <tr style="padding-bottom: 0px;margin-bottom: 0px;">
+                <td style="padding-bottom: 0px;margin-bottom: -1px;">
+                    <div class="col offset-xxl-0">
+                        <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">삭제 메세지</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <h1>정말로 진짜 삭제 하시겠습니까?</h1>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">삭제</button>
-      </div>
-    </div>
-  </div>
-</div></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 11px;">2222-11-11</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="d-table-cell" style="height: 200px;width: 800px;">이클립스가 좋아요</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="d-md-flex justify-content-md-center">
-                                    <div class="col-7 offset-0 d-flex d-xxl-flex justify-content-center justify-content-xxl-center" style="width: 100%;"><input type="text" class="댓글을 입력해주세요." style="width: 100%;margin: 3px;" placeholder="댓글을 입력해주세요."><button class="btn btn-primary" type="button" style="height: 38px;width: 80.5px;margin: 2px;background: rgb(32,113,250);border-color: rgb(255,255,255);">작성</button></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 12px;background: var(--bs-table-bg);opacity: 0.82;position: relative;display: block;filter: blur(0px) brightness(106%) saturate(106%);">댓글창</td>
-                            </tr>
-                            <tr style="padding-bottom: 0px;margin-bottom: 0px;">
-                                <td style="padding-bottom: 0px;margin-bottom: -1px;">
-                                    <div class="col offset-xxl-0">
-                                        <div class="d-flex">
-                                            <p style="font-size: 22px;margin-bottom: 2px;">Paragraph</p>
-                                            <div class="dropdown"><button class="btn btn-primary dropdown-toggle text-center d-flex justify-content-center align-items-end" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);width: 24.6px;height: 30px;"></button>
-                                                <div class="dropdown-menu text-center" style="width: 108px;height: 78px;"><a class="dropdown-item" href="#" style="width: 100%;">수정</a><button class="btn btn-primary" type="button" style="color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >삭제</button>
-<!-- Button trigger modal -->
+                            <table class="table my-0">
+                                <tbody id="comment-table" class="comment-body">
+                                <tr th:each="comments : ${comments}">
+                                    <td th:if="${comments.floor == 2}">
+                                        <p class="" style="margin-left: 30px" th:text="${comments.text}"></p>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">삭제 메세지</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <h1>정말로 진짜 삭제 하시겠습니까?</h1>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">삭제</button>
-      </div>
-    </div>
-  </div>
-</div></div>
+                                    </td>
+                                    <td th:unless="${comments.floor == 2}">
+                                        <a th:text="${comments.text}"></a>
+                                        <a style=" text-align: left; margin: 0px;width: 30%;height: 30%;font-size: 7px; color:blue;background: var(--bs-table-bg);border-color: var(--bs-table-bg);"
+                                           class="btn btn-primary reBtn"
+                                           th:href="@{findDetail/findOne/(id=${comments.id})}">대댓글 입력</a>
+                                    </td>
+
+                                    <!--                                    <td id="comment-name"  type="hidden" name="comment-id" th:value="${comments.id}"></td>-->
+                                    <td>
+                                        <a th:href="@{findDetail/findOne/(id=${comments.id})}"
+                                           class="btn btn-primary text-center d-flex justify-content-end align-items-center eBtn"
+                                           style="margin: 0px;width: 100%;height: 100%;padding: 2px 17px;font-size: 7px;color: blue;background: var(--bs-table-bg);border-color: var(--bs-table-bg);"
+                                        >Edit</a>
+                                        <a class="btn btn-primary text-center d-flex justify-content-end align-items-center delBtn"
+                                           type="button" th:href="@{findDetail/delete/(id=${comments.id})}"
+                                           style="margin: 0px;width: 100%;height: 100%;padding: 2px 17px;font-size: 7px;color: var(--bs-table-striped-color);background: var(--bs-table-bg);border-color: var(--bs-table-bg);margin-right: 0px;padding-right: 0px;padding-left: 0px;margin-bottom: 0px;padding-bottom: 0px;margin-top: 0px;padding-top: 0px;">
+                                            <span style="color: rgb(43, 143, 244);">삭제</span></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col d-flex justify-content-center align-items-center">
+                                    <a class="btn btn-primary" type="button"
+                                       style="background: rgb(32,113,250);border-color: rgb(255,255,255);"
+                                       href="/findteam">목록
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal 댓글 수정 부분 -->
+                        <div class="myForm">
+                            <form action="#" method="post" th:action="@{findDetail/updatecomment}">
+                                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+                                     id="exampleModal" role="dialog"
+                                     tabindex="-1">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">수정 제목</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="Commentcontent">수정 내용</label>
+                                                    <input class="form-control" id="Commentcontent"
+                                                           name="Commentcontent" type="text"
+                                                           value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="comment-id"></label>
+                                                    <input class="form-control" id="comment-id" name="comment-id"
+                                                           type="text"
+                                                           value=""/>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" data-dismiss="modal"
+                                                            type="button">Close
+                                                    </button>
+                                                    <input class="btn btn-primary" type="submit" value="save"/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button" style="background: var(--bs-table-bg);border-color: var(--bs-table-bg);color: rgb(0,0,0);font-size: 10px;"><span style="color: rgb(0, 25, 255);">답글</span></a>
-                                            <div class="collapse" id="collapse-1">
-                                                <div class="d-flex"><input type="text" placeholder="답글 입력...." style="width: 100%;"><button class="btn btn-primary" type="button" style="margin: 3px;width: 46px;height: 30px;padding: 0px 5px;font-size: 8px;">작성</button></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--Modal 대댓글 -->
+
+                        <div class="myFormSmallComment">
+                            <form>
+                                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+                                     id="smallCommentModal" role="dialog"
+                                     tabindex="-1">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="smallCommentModalLabel">대댓글 창</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <input type="hidden" id="reComment-id" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="hidden" id="re-boardId" th:value="${community.id}"/>
+                                                    <input type="text" id="ano-reComment-group" value=""/>
+                                                    <input type="hidden" id="ano-reComment-floor" value="2"/>
+                                                    <input type="hidden" id="ano-reComment-order"
+                                                           th:value="${comment.order}"/>
+                                                    <label class="col-form-label" for="reComment-text">대댓글 입력</label>
+                                                    <input class="form-control" id="reComment-text"
+                                                           name="reComment-text"
+                                                           type="text" value=""/><span id="reComment_valid"></span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="reComment_Close" class="btn btn-secondary"
+                                                            data-dismiss="modal"
+                                                            type="button">닫기
+                                                    </button>
+                                                    <input id="reComment-save" value="작성" class="btn btn-primary"
+                                                           type="button"
+                                                           style="height: 38px;width: 80.5px;margin: 2px;background: rgb(32,113,250);border-color: rgb(255,255,255);"/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <p style="font-size: 17px;margin-bottom: 2px;margin-left: 46px;">Paragraph</p>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot style="margin: 7px;margin-bottom: 8px;padding: 0px;padding-bottom: 0px;height: 0px;margin-left: 3px;color: var(--bs-table-bg);">
-                            <tr style="padding: 16px;margin-bottom: 11px;margin-left: -4px;margin-top: 1px;"></tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center align-items-center"><button class="btn btn-primary" type="button" style="background: rgb(32,113,250);border-color: rgb(255,255,255);">목록</button></div>
-                </div>
-            </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- 삭제  -->
+
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModal"
+                             role="dialog" tabindex="-1">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="myModalLabel">삭제 메세지</h5>
+                                        <button aria-label="Close" class="close" data-dismiss="modal"
+                                                type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="alert alert-danger">
+                                            댓글을 삭제 하시겠습니까?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" data-dismiss="modal"
+                                                type="button">닫기
+                                        </button>
+                                        <a class="btn btn-danger" href="" id="delRef">삭제</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
         </div>
+        </td>
+        </tr>
     </div>
-    <script th:href="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:href="@{/assets/js/bs-init.js}"></script>
-    <script th:href="@{/assets/js/agency.js}"></script>
-    <script th:href="@{/assets/js/roadmap.js}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <tfoot style="margin: 7px;margin-bottom: 8px;padding: 0px;padding-bottom: 0px;height: 0px;margin-left: 3px;color: var(--bs-table-bg);">
+    <tr style="padding: 16px;margin-bottom: 11px;margin-left: -4px;margin-top: 1px;"></tr>
+    </tfoot>
+    <div th:replace="fragments/footer :: footer">
+    </div>
+</div>
 </body>
-
 </html>

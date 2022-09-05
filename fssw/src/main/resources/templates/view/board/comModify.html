@@ -38,37 +38,6 @@
         </div>
     </div>
 </nav>
-<div class="fixed-bottom"
-     style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
-    <ul class="nav nav-tabs"
-        style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
-        <li class="nav-item" style="background: rgba(255,0,0,0);"><a
-                class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
-        <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                class="nav-link d-flex flex-column justify-content-center align-items-center" href="#"
-                style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
-        <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                class="nav-link d-flex flex-column justify-content-center align-items-center" href="#"
-                style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
-        <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
-        <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
-    </ul>
-</div>
 <div class="container-fluid">
     <div class="card shadow" style="width: 100%;">
         <div class="card-header py-3">
@@ -127,13 +96,7 @@
         </div>
     </div>
 </div>
-<script th:src="@{/assets/bootstrap/js/jquery-3.6.0.min.js}"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-<script th:href="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
-<script th:href="@{/assets/js/bs-init.js}"></script>
-<script th:href="@{/assets/js/agency.js}"></script>
-<script th:href="@{/assets/js/roadmap.js}"></script>
+<div th:replace="fragments/footer :: footer">
+</div>
 </body>
 </html>

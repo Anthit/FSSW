@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,7 @@ public class CommunityController {
     private final CommentApiRepository commentApiRepository;
 
     @GetMapping
-    public String communityList(Model model, @PageableDefault Pageable pageable ,@RequestParam(required = false,defaultValue = "") String search) {
+    public String communityList(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable , @RequestParam(required = false,defaultValue = "") String search) {
         Page<Community> communityList = communityApiRepository.findByTitleContainingOrContentsContaining(search,search,pageable);
         int startPage = Math.max(1, communityList.getPageable().getPageNumber() - 4); //현재 페이지 넘버를 가져온다.
         int endPage = Math.min(communityList.getTotalPages(), communityList.getPageable().getPageNumber() + 4);

@@ -1,14 +1,14 @@
-package com.ssw.fssw.controller.coummuity;
+package com.ssw.fssw.controller.findteam;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
-@Getter
 @Setter
-public class CommunityForm {
+@Getter
+public class FindTeamForm {
 
     private String title;
 
@@ -16,7 +16,7 @@ public class CommunityForm {
 
     private int category;
 
-    private int board_num = 1;
+    private int findTeam_num = 2;
 
     private LocalDateTime localDateTime;
 }

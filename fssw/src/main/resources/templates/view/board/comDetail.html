@@ -102,7 +102,7 @@
                                      style="width: 100%;">
                                     <input id="com_content" type="text" class="btn btn-successs"
                                            style="width: 100%;margin: 3px;"
-                                           placeholder="댓글을 입력해주세요." required />
+                                           placeholder="댓글을 입력해주세요." required/>
                                     <input id="com-btn-save" value="작성" class="btn btn-primary" type="submit"
                                            style="height: 38px;width: 80.5px;margin: 2px;background: rgb(32,113,250);border-color: rgb(255,255,255);">
                                 </div>
@@ -125,18 +125,19 @@
 
                             <table class="table my-0">
                                 <tbody id="comment-table" class="comment-body">
-                                <tr th:each="comments : ${comments}" >
+                                <tr th:each="comments : ${comments}">
                                     <td th:if="${comments.floor == 2}">
                                         <p class="" style="margin-left: 30px" th:text="${comments.text}"></p>
 
                                     </td>
                                     <td th:unless="${comments.floor == 2}">
                                         <a th:text="${comments.text}"></a>
-                                        <a  style=" text-align: left; margin: 0px;width: 30%;height: 30%;font-size: 7px; color:blue;background: var(--bs-table-bg);border-color: var(--bs-table-bg);"
-                                            class="btn btn-primary reBtn" th:href="@{comDetail/findOne/(id=${comments.id})}">대댓글 입력</a>
+                                        <a style=" text-align: left; margin: 0px;width: 30%;height: 30%;font-size: 7px; color:blue;background: var(--bs-table-bg);border-color: var(--bs-table-bg);"
+                                           class="btn btn-primary reBtn"
+                                           th:href="@{comDetail/findOne/(id=${comments.id})}">대댓글 입력</a>
                                     </td>
 
-<!--                                    <td id="comment-name"  type="hidden" name="comment-id" th:value="${comments.id}"></td>-->
+                                    <!--                                    <td id="comment-name"  type="hidden" name="comment-id" th:value="${comments.id}"></td>-->
                                     <td>
                                         <a th:href="@{comDetail/findOne/(id=${comments.id})}"
                                            class="btn btn-primary text-center d-flex justify-content-end align-items-center eBtn"
@@ -175,12 +176,14 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label class="col-form-label" for="Commentcontent">수정 내용</label>
-                                                    <input class="form-control" id="Commentcontent" name="Commentcontent" type="text"
+                                                    <input class="form-control" id="Commentcontent"
+                                                           name="Commentcontent" type="text"
                                                            value=""/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-form-label" for="comment-id"></label>
-                                                    <input class="form-control" id="comment-id" name="comment-id" type="text"
+                                                    <input class="form-control" id="comment-id" name="comment-id"
+                                                           type="text"
                                                            value=""/>
                                                 </div>
                                                 <div class="modal-footer">
@@ -216,16 +219,20 @@
                                                     <input type="hidden" id="re-boardId" th:value="${community.id}"/>
                                                     <input type="text" id="ano-reComment-group" value=""/>
                                                     <input type="hidden" id="ano-reComment-floor" value="2"/>
-                                                    <input type="hidden" id="ano-reComment-order" th:value="${comment.order}"/>
+                                                    <input type="hidden" id="ano-reComment-order"
+                                                           th:value="${comment.order}"/>
                                                     <label class="col-form-label" for="reComment-text">대댓글 입력</label>
-                                                    <input class="form-control" id="reComment-text" name="reComment-text"
+                                                    <input class="form-control" id="reComment-text"
+                                                           name="reComment-text"
                                                            type="text" value=""/><span id="reComment_valid"></span>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="reComment_Close" class="btn btn-secondary" data-dismiss="modal"
+                                                    <button id="reComment_Close" class="btn btn-secondary"
+                                                            data-dismiss="modal"
                                                             type="button">닫기
                                                     </button>
-                                                    <input id="reComment-save" value="작성" class="btn btn-primary" type="button"
+                                                    <input id="reComment-save" value="작성" class="btn btn-primary"
+                                                           type="button"
                                                            style="height: 38px;width: 80.5px;margin: 2px;background: rgb(32,113,250);border-color: rgb(255,255,255);"/>
                                                 </div>
                                             </div>
@@ -271,50 +278,8 @@
     <tfoot style="margin: 7px;margin-bottom: 8px;padding: 0px;padding-bottom: 0px;height: 0px;margin-left: 3px;color: var(--bs-table-bg);">
     <tr style="padding: 16px;margin-bottom: 11px;margin-left: -4px;margin-top: 1px;"></tr>
     </tfoot>
-    <div class="fixed-bottom"
-         style="background: #ffffff;display: flex;justify-content: center;border-top-style: solid;border-top-color: rgb(43,116,247);">
-        <ul class="nav nav-tabs"
-            style="background: rgba(255,255,255,0);display: flex;justify-content: space-between;width: 100%;max-width: 500px;border-top-color: rgb(0,0,0);">
-            <li class="nav-item" style="background: rgba(255,0,0,0);"><a
-                    class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                    style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                    class="fas fa-user" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                    style="color: rgba(0,0,0,0.8);font-size: 10px;">mypage</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                    class="nav-link d-flex flex-column justify-content-center align-items-center" href="#"
-                    style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                    class="fas fa-university" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                    style="color: rgba(0,0,0,0.8);font-size: 10px;">school</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                    class="nav-link d-flex flex-column justify-content-center align-items-center" href="#"
-                    style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                    class="fas fa-home" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                    style="color: rgba(0,0,0,0.8);font-size: 10px;">home</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                    class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                    style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                    class="fas fa-cloud" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                    style="color: rgba(0,0,0,0.8);font-size: 10px;">ecampus</span></a></li>
-            <li class="nav-item" style="background: rgba(255,255,255,0);"><a
-                    class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#"
-                    style="color: #ffffff;background: rgba(255,255,255,0);border-width: 0px;padding-right: 10px;padding-left: 10px;"><i
-                    class="fas fa-calendar-alt" style="font-size: 24px;color: rgba(0,0,0,0.5);"></i><span
-                    style="color: rgba(0,0,0,0.8);font-size: 10px;">attend</span></a></li>
-        </ul>
+    <div th:replace="fragments/footer :: footer">
     </div>
 </div>
-<script th:src="@{/assets/bootstrap/js/jquery-3.6.0.min.js}"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-<script th:href="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
-<script th:href="@{/assets/js/bs-init.js}"></script>
-<script th:href="@{/assets/js/agency.js}"></script>
-<script th:href="@{/assets/js/roadmap.js}"></script>
-<!--    <script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>-->
-<script th:src="@{/assets/js/comment.js}"></script>
-<script th:src="@{/assets/js/main.js}"></script>
-
 </body>
 </html>

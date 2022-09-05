@@ -44,5 +44,6 @@ public class Comment {
     @Column(name="comment_order")
     public int order;
 
+
 }
 
