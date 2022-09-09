@@ -21,36 +21,18 @@
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav"
      style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
-    <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;일반 게시판</span>
-        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
-                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
-                style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
-                <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
-                <li class="nav-item"><a class="nav-link" href="/findteam" style="color: rgb(0,0,0);">팀원 구하기</a></li>
-                <li class="nav-item"><a class="nav-link" href="/community" style="color: rgb(0,0,0);">커뮤니티 게시판</a></li>
-                <li class="nav-item"><a class="nav-link" href="/hotKeyword" style="color: rgb(0,0,0);">뜨거운 이슈</a></li>
-                <li class="nav-item"><a class="nav-link" href="/faq" style="color: rgb(0,0,0);">자주 묻는 질문</a></li>
-                <li class="nav-item"><a class="nav-link" href="/login" style="color: rgb(0,0,0);">로그인</a></li>
-            </ul>
+    <div class="container" href="#"><span><a href="javascript:history.back();" class="fas fa-arrow-left"
+                                             style="color: rgb(32,113,250);"></a>&nbsp;팀원 게시판</span>
+        <div th:replace="fragments/navHeader :: navHeader">
         </div>
     </div>
 </nav>
-<div class="container-fluid" style="height: 0px;">
-    <div class="card shadow" style="margin-top: 100px;">
+<div class="container-fluid" style="height: 100%;">
+    <div class="card shadow" style="margin-top: 80px;">
         <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">일반 게시판</span></div>
         <div class="card-body">
             <div class="d-flex justify-content-start dataTables_length" id="dataTable_length"
                  aria-controls="dataTable"></div>
-            <div class="row">
-                <div class="col d-flex"><select class="d-inline-block form-select form-select-sm"
-                                                style="width: 100%;height: 30px;">
-                    <option value="1">진로 계획</option>
-                    <option value="2">고민 상담</option>
-                    <option value="3">연애 상담</option>
-                </select></div>
                 <div class="col offset-0 d-flex d-lg-flex justify-content-end" style="width: 100%;">
                     <a href="/community/comWrite"
                        class="btn btn-primary text-center border rounded d-lg-flex justify-content-center align-items-center justify-content-lg-center justify-content-xxl-center"
@@ -78,37 +60,45 @@
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
+                    <ul class="pagination justify-content-center" style="margin-top: 20px;">
+                        <li class="page-item" th:classappend="${1 == data.pageable.pageNumber + 1} ? 'disabled'">
                             <a class="page-link"
-                               th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
+                               href="#"
+                               tabindex="-1" aria-disabled="true"
                                th:href="@{/community(page=${data.pageable.pageNumber - 1}, search=${param.search})}">이전</a>
                         </li>
                         <li class="page-item"
-                            th:each="i: ${#numbers.sequence(startPage,endPage)}">
+                            th:each="i: ${#numbers.sequence(startPage,endPage)}"
+                            th:classappend="${i == data.pageable.pageNumber + 1} ? 'disabled'">
                             <a class="page-link"
-                               th:classappend="${data.totalPages == data.pageable.pageNumber - 1} ? 'disabled'"
-                               href="#"
-                               th:text="${i}"
+                               th:text="${i}" href="#"
                                th:href="@{/community(page=${i - 1},search=${param.search})}">1</a>
                         </li>
                         <li class="page-item"
                             th:classappend="${data.totalPages == data.pageable.pageNumber + 1} ? 'disabled'">
                             <a class="page-link"
-                               th:href="@{/community(page=${data.pageable.pageNumber + 1},search=${param.search})}"
+                               th:href="@{/community(page=${data.pageable.pageNumber + 1 },search=${param.search})}"
                                href="#">다음</a>
                         </li>
                     </ul>
+                    <form class="d-flex justify-content-center" method="GET" th:action="@{/community}">
+                        <div class="col-auto">
+                            <select id="category" name="category" class="form-select"
+                                    onchange="this.options[this.selectedIndex].value()">
+                                <option id="1">연애 상담</option>
+                                <option id="2">팀플 상담</option>
+                                <option id="3">공부 상담</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <label for="search" class="visually-hidden">검색</label>
+                            <input type="text" class="form-control" id="search" name="search" th:value="${param.search}"/>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-5">검색</button>
+                        </div>
+                    </form>
                 </nav>
-                <form class="row g-3 justify-content-center" method="GET" th:action="@{/community}">
-                    <div class="col-auto">
-                        <label for="search" class="visually-hidden">검색</label>
-                        <input type="text" class="form-control" id="search" name="search" th:value="${param.search}" required/>
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3">검색</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

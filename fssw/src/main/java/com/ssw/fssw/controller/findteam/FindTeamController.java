@@ -32,8 +32,8 @@ public class FindTeamController {
     private final CommentApiRepository commentApiRepository;
 
     @GetMapping
-    public String findTeamList(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable, @RequestParam(required = false, defaultValue = "") String search) {
-        Page<Community> communityList = communityApiRepository.findByTitleContainingOrContentsContaining(search, search, pageable);
+    public String findTeamList(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable, @RequestParam(required = false, defaultValue = "") String search,@RequestParam(required = false, defaultValue = "") String category) {
+        Page<Community> communityList = communityApiRepository.findByTitleContainsAndContentsContainsAndCategoryContains(search, search,category,pageable);
         int startPage = Math.max(1, communityList.getPageable().getPageNumber() - 4); //현재 페이지 넘버를 가져온다.
         int endPage = Math.min(communityList.getTotalPages(), communityList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage", startPage);
@@ -96,6 +96,7 @@ public class FindTeamController {
         FindTeamForm form = new FindTeamForm();
         form.setTitle(community.getTitle());
         form.setContent(community.getContents());
+        form.setCategory(community.getCategory());
 
         model.addAttribute("updateFindForm", form);
 
@@ -104,7 +105,7 @@ public class FindTeamController {
     @PostMapping("/{id}/findModify")
     public String updateFindTeamModify(@PathVariable Long id, @ModelAttribute("updateFindForm") FindTeamForm form) {
 
-        communityService.updateCommunity(id, form.getTitle(), form.getContent());
+        communityService.updateCommunity(id, form.getTitle(), form.getContent(), form.getCategory());
 
         return "redirect:/findteam/{id}/findDetail";
     }

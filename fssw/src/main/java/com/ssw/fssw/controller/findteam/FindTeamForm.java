@@ -14,7 +14,7 @@ public class FindTeamForm {
 
     private String content;
 
-    private int category;
+    private String category;
 
     private int findTeam_num = 2;
 

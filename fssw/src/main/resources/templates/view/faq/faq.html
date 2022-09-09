@@ -21,7 +21,7 @@
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav"
      style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
-    <div class="container"><span><a href="/" class="fas fa-arrow-left" style="color: rgb(32,113,250);"></a>&nbsp;자주 묻는 질문</span>
+    <div class="container"><span><a href="javascript:history.back();" class="fas fa-arrow-left" style="color: rgb(32,113,250);"></a>&nbsp;자주 묻는 질문</span>
         <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
                 type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
                 style="background: var(--bs-blue);margin: 10px;;">
@@ -165,5 +165,5 @@
 <div th:replace="fragments/footer :: footer">
 </div>
 </body>
-
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </html>

@@ -14,7 +14,7 @@ public class CommunityForm {
 
     private String content;
 
-    private int category;
+    private String category;
 
     private int board_num = 1;
 

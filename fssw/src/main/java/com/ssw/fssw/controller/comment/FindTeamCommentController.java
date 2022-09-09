@@ -32,6 +32,7 @@ public class FindTeamCommentController {
         Community community = communityService.findOne(Long.parseLong(map.get("boardId")));
         comment.setCommunity(community);
         //댓글 저장 기능
+
         //그룹 추가
         comment.setGroup(Integer.parseInt(map.get("reCommentGroup")));
         //오더 추가
@@ -53,6 +54,7 @@ public class FindTeamCommentController {
         Community community = communityService.findOne(Long.parseLong(map.get("re-boardId")));
         comment.setCommunity(community);
         //대댓글 저장 기능
+
         //그룹 추가 사항-> 현재 id의 group값을 받아와야함.
         comment.setGroup(Integer.parseInt(map.get("ano-reComment-group")));
         //오더 추가

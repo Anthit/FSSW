@@ -27,8 +27,6 @@ $("#com-btn-save").click(function () {
             alert("error");
         }
     })
-
-
 })
 
 $("#reComment-save").click(function (){

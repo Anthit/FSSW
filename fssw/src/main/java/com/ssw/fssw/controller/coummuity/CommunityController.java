@@ -36,8 +36,8 @@ public class CommunityController {
     private final CommentApiRepository commentApiRepository;
 
     @GetMapping
-    public String communityList(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable , @RequestParam(required = false,defaultValue = "") String search) {
-        Page<Community> communityList = communityApiRepository.findByTitleContainingOrContentsContaining(search,search,pageable);
+    public String communityList(Long id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable, @RequestParam(required = false, defaultValue = "") String search, @RequestParam(required = false, defaultValue = "") String category) {
+        Page<Community> communityList = communityApiRepository.findByTitleContainsAndContentsContainsAndCategoryContains(search, search, category,pageable);
         int startPage = Math.max(1, communityList.getPageable().getPageNumber() - 4); //현재 페이지 넘버를 가져온다.
         int endPage = Math.min(communityList.getTotalPages(), communityList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage", startPage);
@@ -45,6 +45,7 @@ public class CommunityController {
         model.addAttribute("data", communityList);
         return "view/board/comList";
     }
+
 
     @GetMapping("/comWrite")
     public String comWrite(Model model) {
@@ -89,7 +90,7 @@ public class CommunityController {
 
         //대댓글 작성 부분
         commentForm.setOrder(commentApiRepository.getCommentLastOrder());
-        model.addAttribute("comment",commentForm);
+        model.addAttribute("comment", commentForm);
         model.addAttribute("comments", commentList);
 
         return "view/board/comDetail";
@@ -102,6 +103,7 @@ public class CommunityController {
         CommunityForm form = new CommunityForm();
         form.setTitle(community.getTitle());
         form.setContent(community.getContents());
+        form.setCategory(community.getCategory());
 
         model.addAttribute("updateform", form);
 
@@ -111,7 +113,7 @@ public class CommunityController {
     @PostMapping("/{id}/comModify")
     public String updateModify(@PathVariable Long id, @ModelAttribute("updateform") CommunityForm form) {
 
-        communityService.updateCommunity(id, form.getTitle(), form.getContent());
+        communityService.updateCommunity(id, form.getTitle(), form.getContent(), form.getCategory());
 
         return "redirect:/community/{id}/comDetail";
     }

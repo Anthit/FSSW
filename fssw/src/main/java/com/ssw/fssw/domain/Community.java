@@ -29,13 +29,16 @@ public class Community {
     private int num;
 
     @Column(name="Community_category")
-    private int category;
+    private String category;
 
     @Column(name="Community_title",length = 20)
     private String title;
 
     @Column(name="Community_content",length = 1000)
     private String contents;
+
+//    @Column(columnDefinition = "integer default 0", nullable = false)
+//    private int view;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd 'T' HH:mm:ss", timezone = "Asia/Seoul")

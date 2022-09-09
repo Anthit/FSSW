@@ -5,7 +5,7 @@ $(document).ready(function () {
         var href = $(this).attr('href');
         var text = $(this).text();
 
-        if (text === 'Edit') {
+        if (text === '수정') {
 
             $.get(href, function (comments, status) {
                 $('.myForm #Commentcontent').val(comments.text);

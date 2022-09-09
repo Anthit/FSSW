@@ -18,6 +18,9 @@ public interface CommentApiRepository extends JpaRepository<Comment,Long> {
     @Query("select coalesce(max(comment_order),0)+1 from Comment")
     int getCommentLastOrder();
 
+
+
+
 //    @Transactional
 //    @Modifying
 //    @Query("update Comment set text =:text where comment_group= id")

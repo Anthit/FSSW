@@ -32,6 +32,7 @@ public class CommentController {
         Community community = communityService.findOne(Long.parseLong(map.get("boardId")));
         comment.setCommunity(community);
         //댓글 저장 기능
+
         //그룹 추가
         comment.setGroup(Integer.parseInt(map.get("reCommentGroup")));
         //오더 추가

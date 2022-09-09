@@ -23,10 +23,11 @@ public class CommunityService {
     }
 
     @Transactional
-    public void updateCommunity(Long id, String title, String contents) {
+    public void updateCommunity(Long id, String title, String contents, String category) {
         Community community = communityRepository.findOne(id);
         community.setTitle(title);
         community.setContents(contents);
+        community.setCategory(category);
     }
 
     public List<Community> communityList() {
@@ -41,5 +42,9 @@ public class CommunityService {
         communityApiRepository.deleteById(id);
     }
 
+//    @Transactional
+//    public int countView(Long id) {
+//        return communityApiRepository.countView(id);
+//    }
 
 }

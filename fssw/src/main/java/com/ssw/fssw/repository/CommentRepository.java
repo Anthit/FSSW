@@ -3,6 +3,7 @@ package com.ssw.fssw.repository;
 import com.ssw.fssw.domain.Comment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class CommentRepository {
     public Comment findOne(Long id) {
         return em.find(Comment.class, id);
     }
+
 
     public List<Comment> findAll(Long id) {
         return em.createQuery("select o from Comment o", Comment.class)
@@ -44,6 +46,7 @@ public class CommentRepository {
         //해당 그룹의 값을 찾아주면 댓글 밑 대댓글 삭제까지 구현이 완료된다.
         String s = "delete Comment where comment_group="+id;
         return em.createQuery(s).executeUpdate();
+
     }
 
 

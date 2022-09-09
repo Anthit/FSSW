@@ -21,11 +21,17 @@
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav"
      style="background-color: var(--bs-white) !important;padding: 0px;border-bottom-style: solid;border-bottom-color: rgb(32,113,250);">
-    <div class="container"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;팀원 게시글 작성</span>
-        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
-                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
-                style="background: var(--bs-blue);margin: 10px;;"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="container" href="#"><span><i class="fas fa-arrow-left" style="color: rgb(32,113,250);"></i>&nbsp;팀원 게시판</span>
+        <button style="background: var(--bs-blue);margin: 10px;"
+                class="navbar-toggler navbar-toggler-right"
+                type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto text-uppercase">
                 <li class="nav-item"><a class="nav-link" href="/roadmap" style="color: rgb(0,0,0);">선배의 눈높이 교육</a></li>
                 <li class="nav-item"><a class="nav-link" href="/curriculum" style="color: rgb(0,0,0);">학습 과정</a></li>
@@ -78,9 +84,9 @@
                                             <p style="margin: 2px;">카테고리</p><select th:field="*{category}"
                                                                                     class="form-select">
                                             <optgroup label>
-                                                <option value="1">연애 상담</option>
-                                                <option value="2">팀플 상담</option>
-                                                <option value="3">공부 상담</option>
+                                                <option value="코딩 상담">코딩 상담</option>
+                                                <option value="스터디 상담">스터디 상담</option>
+                                                <option value="공부 상담">공부 상담</option>
                                             </optgroup>
                                         </select>
                                         </div>
