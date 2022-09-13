@@ -1,11 +1,12 @@
 package com.ssw.fssw.repository;
 
 import com.ssw.fssw.domain.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface AccountRepository {
+public interface AccountRepository extends JpaRepository {
     Account save(Account account);
     //회원저장시 저장한 회원을 반환
     Optional<Account> findById(Long num);
