@@ -23,12 +23,31 @@ public class JpaAccountRepository {
         return Optional.ofNullable(account);
     }
 
-    public Optional<Account> findByEmail(String email) {
+    public String findByEmail(String email) {
         List<Account> result = em.createQuery("select a from Account a where a.email=:email", Account.class)
                 .setParameter("email", email)
                 .getResultList();
-        return result.stream().findAny();
+        int count;
+        if(result != null){
+            count =0;
+        }
+        else count =1;
+        return Integer.toString(count);
+        //return result.stream().findAny();
     }
+    public String findByNick(String nick) {
+        List<Account> result = em.createQuery("select a from Account a where a.nick=:nick", Account.class)
+                .setParameter("nick", nick)
+                .getResultList();
+        int count;
+        if(result != null){
+            count =0;
+        }
+        else count =1;
+        return Integer.toString(count);
+        //return result.stream().findAny();
+    }
+
 
 /*    @Override
     public List<Account> findAll() {

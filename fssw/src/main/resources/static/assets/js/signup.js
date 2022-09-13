@@ -46,4 +46,33 @@ function joinform_check(){
         });
     }
 
+    function email_check(){
+        alert("됐나요?");
+        var data=
+            {
+                "email_id" : $("#emiail_id").val()
+            };
+
+        $.ajax({
+            async: true ,
+            type : "POST",
+            data : JSON.stringify(data),
+            url:"/signupEmail",
+            dataType : 'text',
+            contentType: "application/json; charset=UTF-8",
+            success: function(count){
+                alert("됐음")
+                if(count==1){
+                    $("#email_check").html("중복된 이메일이 있습니다");
+                }else{
+                    $("#email_check").html("");
+                }
+            },
+            error: function(msg){
+                alert("error");
+            }
+        });
+        //success는 ajax가 실행됐을때 실행되는 함수의 반환을 매개변수로 받는다.
+    }
+
 }

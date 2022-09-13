@@ -50,4 +50,13 @@ public class SignupController {
         return email;
     }
 
+    @ResponseBody
+    @PostMapping(name ="/signupNick", produces = "application/json; charset= UTF-8")
+    public String DuplicateNickCheck(@RequestBody Map<String,String> map){
+        Account account = new Account();
+        account.setPw(map.get("pwd"));
+        String email= JpaAccountRepository.findByNick(account.setNick(map.get("nickname"));
+        return email;
+    }
+
 }
