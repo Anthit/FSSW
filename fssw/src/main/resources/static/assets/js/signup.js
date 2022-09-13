@@ -53,7 +53,7 @@ function email_check(){
     alert("됐나요?");
     var data=
         {
-            "email_id" : $("#emiail_id").val()
+            "email_id" : $("#email_id").val()
         };
 
     $.ajax({
