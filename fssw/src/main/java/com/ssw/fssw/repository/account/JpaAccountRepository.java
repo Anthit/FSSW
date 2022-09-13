@@ -3,6 +3,7 @@ package com.ssw.fssw.repository.account;
 import com.ssw.fssw.domain.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Repository;
 //import com.ssw.fssw.domain.CustomUserDetails;
 
 import javax.persistence.EntityManager;
@@ -38,6 +39,47 @@ public class JpaAccountRepository implements AccountRepository{
                 .findAny()
                 .orElseThrow(() -> new UsernameNotFoundException("유저 이메일이 " + email + "인 사용자를 찾을 수 없습니다.")));
     }
+
+    @Override
+    public Optional<Account> findByNick(String nick) {
+        return Optional.empty();
+    }
+
+
+    /*   public Optional<Account> findById(Long num) {
+           Account account = em.find(Account.class, num);
+           return Optional.ofNullable(account);
+       }*/
+    @Override
+    public String findByEmail2(String email) {
+        List<Account> result = em.createQuery("select a from Account a where a.email=:email", Account.class)
+                .setParameter("email", email)
+                .getResultList();
+        int count;
+        if(result != null){
+            count =0;
+        }
+        else count =1;
+        return Integer.toString(count);
+        //return result.stream().findAny();
+    }
+
+
+    public String findByNick2(String nick) {
+        List<Account> result = em.createQuery("select a from Account a where a.nick=:nick", Account.class)
+                .setParameter("nick", nick)
+                .getResultList();
+        int count;
+        if(result != null){
+            count =0;
+        }
+        else count =1;
+        return Integer.toString(count);
+        //return result.stream().findAny();
+    }
+
+
+
 
 //    @Override
 //    public Optional<CustomUserDetails> loadUserByUsername(String email) {
