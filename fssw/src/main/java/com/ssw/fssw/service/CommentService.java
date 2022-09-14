@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommentService {
 
-    private final CommentApiRepository commentApiRepository;
     private final CommentRepository commentRepository;
 
     @Transactional
