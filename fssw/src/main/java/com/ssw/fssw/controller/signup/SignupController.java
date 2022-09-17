@@ -26,55 +26,60 @@ public class SignupController {
     public String signup(){
         return "view/signup/signup";
     }
-//    @RequestMapping
-//    public String JoinForm(@RequestBody Map<String, String> map){
-//        Account account = new Account();
-//        account.setNick(map.get("nickname"));
-//        account.setPw(map.get("pwd"));
-//        account.setEmail(map.get("email"));
-//        /*
-//        해당 서비스.저장하는 값()
-//        int cnt = accountRepository.isUsed(account);
-//        레포즈토리에 jpa를 통해 중복검사
-//        이메일을 where절에 넣고 이 이메일이 db에 있냐 jpa를 통해 물어보면
-//        결과값이 반환이 됐으면
-//        if(em.select () == null) -> count = 0;
-//        else -> count =1
-//        return count
-//        return Integer.toString(cnt);
-//         */
-//        return account.getNick();
-//    }
-
     @PostMapping("/main/signup")
-    public String signupDo(){
-        return "";
+    public String JoinForm(String email, String pw, String nick){
+        log.info("email : " + email);
+        log.info("pw : " + pw);
+        log.info("nick : " + nick);
+
+        Account account = new Account();
+        account.setNick(nick);
+        account.setPw(pw);
+        account.setEmail(email);
+
+        JpaAccountRepository.save(account);
+
+
+        /*
+        해당 서비스.저장하는 값()
+        int cnt = accountRepository.isUsed(account);
+        레포즈토리에 jpa를 통해 중복검사
+        이메일을 where절에 넣고 이 이메일이 db에 있냐 jpa를 통해 물어보면
+        결과값이 반환이 됐으면
+        if(em.select () == null) -> count = 0;
+        else -> count =1
+        return count
+        return Integer.toString(cnt);
+         */
+        return "view/login/login";
     }
+
+
 
     @ResponseBody
-    @RequestMapping(value="/signupEmail", produces = "application/text; charset=UTF-8", method = RequestMethod.POST)
+    @PostMapping(value="/signupEmail", produces = "application/json;")
     public String DuplicateEmailCheck(@RequestBody Map<String,String> map){
-        Account account = new Account();
-        account.setPw(map.get("pwd"));
-        account.setEmail(map.get("email"));
-        String email= JpaAccountRepository.findByEmail2(account.getEmail());
-        return email;
+//        Account account = new Account();
+//        account.setPw(map.get("pwd"));
+//        account.setEmail(map.get("email"));
+        String count= JpaAccountRepository.findByEmail2(map.get("email"));
+        return count;
     }
 
-    @RequestMapping(value = "/signupEmail", method = RequestMethod.GET)
-    public String signupEmailTest(){
-        return "view/main/main";
-    }
+//    @RequestMapping(value = "/main/signup/signupEmail", method = RequestMethod.GET)
+//    public String signupEmailTest(){
+//        return "view/main/main";
+//    }
 
-    /*@ResponseBody
-    @PostMapping(name ="/signupNick", produces = "application/json; charset= UTF-8")
+    @ResponseBody
+    @PostMapping(value ="/signupNick", produces = "application/json;")
     public String DuplicateNickCheck(@RequestBody Map<String,String> map){
-        Account account = new Account();
-        account.setPw(map.get("pwd"));
-        account.setNick(map.get("nickname"));
-        String nick= JpaAccountRepository.findByNick2(account.getNick());
-        return nick;
-    }*/
+//        Account account = new Account();
+//        account.setPw(map.get("pwd"));
+//        account.setNick(map.get("nickname"));
+        String count= JpaAccountRepository.findByNick2(map.get("nick"));
+        return count;
+    }
 //
 //    @PostMapping("")
 //    public String postSignup(Account account){

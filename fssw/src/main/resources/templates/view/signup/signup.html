@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>FFSW</title>
     <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
@@ -24,81 +24,83 @@
 <script th:href="@{/assets/js/roadmap.js}"></script>
 <!--<script th:href="@{/assets/js/signup.js}"></script>-->
 <script>
-    // function joinform_check() {
-    //     var email_id = document.getElementById("email_id");
-    //     var pwd = document.getElementById("password");
-    //     var repwd = document.getElementById("repwd");
-    //     var nick = document.getElementById("nick");
-    //
-    //     if (email_id == "") {
-    //         alert("이메일을 입력하세요");
-    //         email_id.focus(); //커서 깜빡이기
-    //         return false; //아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것 이란뜻
-    //     }
-    //     ;
-    //     if (pwd.value == "") {
-    //         alert("비밀번호를 입력하세요.");
-    //         pwd.focus();
-    //         return false;
-    //     }
-    //     var pwd_check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    //
-    //     if (!pwd_check.test(pwd.value)) {
-    //         alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다");
-    //         pwd.focus();
-    //         return false;
-    //     }
-    //     document.join_form.submit();
-    // }
-    //
-    // function nick_check(){
-    //     var data={
-    //         "nick" : $("#nick").val()
-    //     };
-    //
-    //     $.ajax({
-    //         async: true,
-    //         type: "POST",
-    //         data: {
-    //             email: $("#nick").val()
-    //         },
-    //         url :"/signupNick",
-    //         dataType:'json' ,
-    //         contentType: "application/json; charset=UTF-8",
-    //         success: function(count){
-    //             if(count=="1"){
-    //                 $("#nick_check").html("중복된 닉네임이 있습니다");
-    //             }else{
-    //                 $("#nick_check").html("");
-    //             }
-    //         }
-    //     });
-    // }
+    function joinform_check() {
+        var email_id = document.getElementById("email_id");
+        var pwd = document.getElementById("password");
+        var repwd = document.getElementById("repwd");
+        var nick = document.getElementById("nick");
 
-    function email_check(){
-        alert("됐나요?");
-        var data =
-            {
-                email_id : $("#email_id").val()
-            };
-        //var email_id =$("#email_id").val()
+        if (email_id == "") {
+            alert("이메일을 입력하세요");
+            email_id.focus(); //커서 깜빡이기
+            return false; //아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것 이란뜻
+        }
+
+        if (pwd.value == "") {
+            alert("비밀번호를 입력하세요.");
+            pwd.focus();
+            return false;
+        }
+        var pwd_check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+
+        if (!pwd_check.test(pwd.value)) {
+            alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다");
+            pwd.focus();
+            return false;
+        }
+        document.join_form.submit();
+    }
+
+    function nick_check(){
+        //alert("됐나요? : " + $("#nick_id").val());
+        /*  var data =
+              {
+                  email_id : $("#email_id").val()
+              };*/
+
         $.ajax({
-            url : "/signupEmail",
-            type : "POST",
-            data :
-                {
-                    "email_id" : $("#email_id").val()
-                },
-            success: function(count){
-                alert("됐음")
-                if(count=="1"){
-                    $("#email_check").html("중복된 이메일이 있습니다");
-                }else{
-                    $("#email_check").html("");
+            url: "/signupNick",
+            type: "POST",
+            data: JSON.stringify({
+                "nick" : $("#nick_id").val()
+            }),
+            dataType: "text",
+            contentType: "application/json;",
+            success: function (count) {
+                //alert("됐음 : " + count )
+                if (count == "1") {
+                    alert("아앗! 중복되는 닉네임이 있습니다")
+                } else {
+                    alert("정말 멋있는 닉네임이네요!")
                 }
             },
-            error: function(msg){
-                alert("error");
+            error: function (request, status, error) {
+                console.log("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
+            }
+        });
+    }
+
+    function email_check(){
+        //alert("됐나요? : " + $("#email_id").val());
+
+        $.ajax({
+            url: "/signupEmail",
+            type: "POST",
+            data: JSON.stringify({
+                "email" : $("#email_id").val()
+            }),
+            dataType: "text",
+            contentType: "application/json;",
+            success: function (count) {
+                //alert("됐음 : " + count )
+                if (count == "1") {
+                    alert("아앗! 중복되는 이메일이 있습니다")
+                } else {
+                    alert("사용가능한 이메일입니당 ㅎㅎ")
+                }
+            },
+            error: function (request, status, error) {
+                console.log("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
             }
         });
         //success는 ajax가 실행됐을때 실행되는 함수의 반환을 매개변수로 받는다.
@@ -137,11 +139,11 @@
                         </svg>ok
                     </button>
                 </div>
-                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><label class="form-label"></label><i class="fa fa-check d-flex fa fa-key rf-icon" style="font-size: 38px;width: 35px;margin: 8px;color: var(--bs-body-color);"></i><input class="form-control" name="pw" type="password" placeholder="비밀번호" style="height: 40px;"></div>
-                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><i class="fa fa-check" style="width: 40px;font-size: 38px;margin: 7px;color: var(--bs-body-color);"></i><input class="form-control" name="pwcheck" type="password" placeholder="비밀번호 확인" style="height: 40px;"></div>
-                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><label class="form-label"></label><i class="fab fa-waze" style="font-size: 39px;width: 30px;margin: 0px 3px;color: var(--bs-body-color);"></i><input class="form-control d-flex" name="nick" type="text" autocomplete="off" required="" placeholder="닉네임" title="Debes escribir el nombre de una ciudad" style="width: 80%;height: 40px;margin: 8px 0px;margin-left: 12px;"><button class="btn btn-primary d-flex" type="button" style="width: 25%;margin: 10px;height: 35px;text-align: center;float: right;font-size: 15px;font-weight: bold;background: rgb(32,113,250);border-color: rgb(255,255,255);">확인</button></div>
+                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><label class="form-label"></label><i class="fa fa-check d-flex fa fa-key rf-icon" style="font-size: 38px;width: 35px;margin: 8px;color: var(--bs-body-color);"></i><input class="form-control" name="pw" type="password" id="password" placeholder="비밀번호" style="height: 40px;"></div>
+                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><i class="fa fa-check" style="width: 40px;font-size: 38px;margin: 7px;color: var(--bs-body-color);"></i><input class="form-control" id="repwd" name="pwcheck" type="password" placeholder="비밀번호 확인" style="height: 40px;"></div>
+                <div class="d-flex align-items-center align-items-sm-center form-group mb-3"><label class="form-label"></label><i class="fab fa-waze" style="font-size: 39px;width: 30px;margin: 0px 3px;color: var(--bs-body-color);"></i><input class="form-control d-flex" name="nick" id="nick_id" type="text" autocomplete="off" required="" placeholder="닉네임" title="Debes escribir el nombre de una ciudad" style="width: 80%;height: 40px;margin: 8px 0px;margin-left: 12px;"><button class="btn btn-primary d-flex" type="button" style="width: 25%;margin: 10px;height: 35px;text-align: center;float: right;font-size: 15px;font-weight: bold;background: rgb(32,113,250);border-color: rgb(255,255,255);"  onclick="nick_check()">확인</button></div>
                 <hr style="margin-top: 30px;margin-bottom: 10px;">
-                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="text-align: center;background: rgb(32,113,250);border-color: rgb(255,255,255);"><i class="fas fa-thumbs-up"></i>&nbsp;회원등록&nbsp;</button></div>
+                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" type="button" style="text-align: center;background: rgb(32,113,250);border-color: rgb(255,255,255);" onclick="joinform_check()"><i class="fas fa-thumbs-up"></i>&nbsp;회원등록&nbsp;</button></div>
             </form>
         </div>
     </section>

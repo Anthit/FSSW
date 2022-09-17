@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://ddoshop.cim8ja8aluy7.ap-northeast-2.rds.amazonaws.com/FSSWTest
+    url: jdbc:mariadb://ddoshop.cim8ja8aluy7.ap-northeast-2.rds.amazonaws.com/FSSW
     username: team_stupid
     password: ahwlfdlemf!
     driver-class-name: org.mariadb.jdbc.Driver

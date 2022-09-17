@@ -3,7 +3,7 @@ package com.ssw.fssw.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ACCOUNT")
+//@Table(name = "ACCOUNT")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

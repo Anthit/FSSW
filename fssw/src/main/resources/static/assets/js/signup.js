@@ -1,3 +1,4 @@
+/*
 function joinform_check() {
     var email_id = document.getElementById("email_id");
     var pwd = document.getElementById("password");
@@ -76,4 +77,4 @@ function email_check(){
         }
     });
     //success는 ajax가 실행됐을때 실행되는 함수의 반환을 매개변수로 받는다.
-}
+}*/

@@ -4,6 +4,7 @@ import com.ssw.fssw.domain.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 //import com.ssw.fssw.domain.CustomUserDetails;
 
 import javax.persistence.EntityManager;
@@ -19,6 +20,7 @@ public class JpaAccountRepository implements AccountRepository{
     }
 
     @Override
+    @Transactional
     public Account save(Account account) {
         em.persist(account);
         return account;
@@ -51,29 +53,33 @@ public class JpaAccountRepository implements AccountRepository{
            return Optional.ofNullable(account);
        }*/
     @Override
+    @Transactional
     public String findByEmail2(String email) {
         List<Account> result = em.createQuery("select a from Account a where a.email=:email", Account.class)
                 .setParameter("email", email)
                 .getResultList();
+
+        //log.info(result.get(0).getEmail());
         int count;
-        if(result != null){
+
+        count=result.size()==0?0:1;
+        return Integer.toString(count);
+/*        if(result != null){
             count =0;
         }
-        else count =1;
-        return Integer.toString(count);
+        else count =1;*/
         //return result.stream().findAny();
     }
 
-
+    @Override
+    @Transactional
     public String findByNick2(String nick) {
         List<Account> result = em.createQuery("select a from Account a where a.nick=:nick", Account.class)
                 .setParameter("nick", nick)
                 .getResultList();
         int count;
-        if(result != null){
-            count =0;
-        }
-        else count =1;
+
+        count=result.size()==0?0:1;
         return Integer.toString(count);
         //return result.stream().findAny();
     }
