@@ -49,12 +49,4 @@ public class CommentRepository {
 
     }
 
-
-//    @Transactional
-//    @Modifying
-//    public Comment updateDeleteText(Long id, String text) {
-//        String s = "update Comment set comment_text ="+ text + " where comment_group=" + id;
-//        return em.createQuery(s, Comment.class).getSingleResult();
-//    }
-
 }

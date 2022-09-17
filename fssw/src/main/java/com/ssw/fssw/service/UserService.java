@@ -22,8 +22,4 @@ public class UserService {
         userRepository.save(user);
     }
 
-    @Transactional
-    public boolean existsByEmailId(String emailId){
-        return userApiRepository.existsByEmailId(emailId);
-    }
 }

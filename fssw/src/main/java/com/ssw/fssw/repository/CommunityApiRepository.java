@@ -18,11 +18,4 @@ public interface CommunityApiRepository extends JpaRepository<Community, Long> {
     Page<Community> findByTitleContainsAndContentsContainsAndCategoryContains(String title, String content,String category,Pageable pageable);
 
 
-//    @Query("select c from Community c where Community_category Like %:category% and Community_number = 1")
-//    List<Community> findCategory(@Param("category")String category);
-
-//    @Modifying
-//    @Query
-//    ("update Community c set c.view = c.view + 1 where c.id = :id")
-//    int countView(Long id);
 }

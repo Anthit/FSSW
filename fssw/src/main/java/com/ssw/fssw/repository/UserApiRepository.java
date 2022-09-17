@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserApiRepository extends JpaRepository<User,Long> {
 
     boolean existsByEmailId(String emailId);
-    boolean existsByNickname(String nickname);
-
 
 }

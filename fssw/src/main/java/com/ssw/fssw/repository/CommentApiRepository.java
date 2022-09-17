@@ -19,11 +19,4 @@ public interface CommentApiRepository extends JpaRepository<Comment,Long> {
     int getCommentLastOrder();
 
 
-
-
-//    @Transactional
-//    @Modifying
-//    @Query("update Comment set text =:text where comment_group= id")
-//    int updateDeleteText(@Param("text") String name);
-
 }
