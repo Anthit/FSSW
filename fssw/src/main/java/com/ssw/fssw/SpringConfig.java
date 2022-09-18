@@ -47,6 +47,7 @@ public class SpringConfig {
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
     public AccountService accountService(){
         return new AccountService(accountRepository());
