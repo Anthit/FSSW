@@ -19,30 +19,32 @@
                         <tbody style="border-top-width: 0px;">
                             <tr>
                                 <td style="border-bottom-width: 0px;">
-                                    <div class="block-heading" style="padding-left: 10px;border-bottom-width: 2px;border-bottom-style: solid;">
-                                        <span th:each="keywordItem : ${session.keywordList}">
-                                            <a th:href="@{/searchKeyword/{keyword}(keyword=${keywordItem})}" style="color: #72a7f6;font-size: 20px;font-weight: bold;" th:text="${keywordItem}"></a>
-<!--                                            <a th:href="@{|/searchKeyword/${keywordItem}|}" style="color: #72a7f6;font-size: 20px;font-weight: bold;" th:text="${keywordItem}"></a>-->
-                                            <span style="margin: 5px;font-weight: bold;font-size: 20px;">&gt;</span>
-                                        </span>
-                                        <div class="d-flex flex-row flex-wrap">
-                                            <span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a th:href="@{/searchKeyword/{keyword}(keyword=Keyword1)}" style="color: rgb(0,0,0);">Keyword1</a></span>
-                                            <span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a th:href="@{/searchKeyword/{keyword}(keyword=KeywordKeyword1)}" style="color: rgb(0,0,0);">KeywordKeyword1</a></span>
-                                            <span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a th:href="@{/searchKeyword/{keyword}(keyword=Keyword2)}" style="color: rgb(0,0,0);">Keyword2</a></span>
-                                            <span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a th:href="@{/searchKeyword/{keyword}(keyword=Keyword3)}" style="color: rgb(0,0,0);">Keyword3</a></span>
-                                            <span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a th:href="@{/searchKeyword/{keyword}(keyword=Keyword4)}" style="color: rgb(0,0,0);">Keyword4</a></span>
-                                        </div>
+                                    <div class="block-heading" style="padding-left: 10px;border-bottom-width: 2px;border-bottom-style: solid;"><a href="#" style="color: #72a7f6;font-size: 20px;font-weight: bold;">C언어</a><span style="margin: 5px;font-weight: bold;font-size: 20px;">/</span><a href="#" style="color: #72a7f6;font-size: 20px;font-weight: bold;">C++</a><span style="margin: 5px;font-weight: bold;font-size: 20px;">/</span><a href="#" style="color: rgb(0,0,0);font-weight: bold;font-size: 25px;">C#</a>
+                                        <div class="d-flex flex-row flex-wrap"><span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a href="#" style="color: rgb(0,0,0);">Keyword1</a></span><span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a href="#" style="color: rgb(0,0,0);">KeywordKeyword1</a></span><span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a href="#" style="color: rgb(0,0,0);">Keyword1</a></span><span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a href="#" style="color: rgb(0,0,0);">Keyword1</a></span><span style="font-weight: bold;margin: 5px;background: #3bcbef;padding: 5px;border-radius: 25px;"><a href="#" style="color: rgb(0,0,0);">Keyword1</a></span></div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr th:each="item : ${urlList}">
+                            <tr>
                                 <td style="border-bottom-width: 0px;">
-                                    <div class="col" style="margin-bottom: 8px;padding: 8px;border-bottom: 1px solid rgba(0,0,0,0.3) ;">
-                                        <a th:href="${item.url}" target="_blank">
-                                            <strong><span style="color: rgb(33, 37, 41);" th:text="${item.title}">검색 결과 Title</span></strong>
-                                            <br>
-                                            <p style="font-size: 13px; color: rgb(33, 37, 41);" th:text="${item.content}">검색 결과 링크의 내용 미리보기 입니다. 글자수 제한이 들어갈 예정입...</p>
-                                        </a>
+                                    <div class="col" style="margin-bottom: 8px;padding: 8px;border-bottom: 1px solid rgba(0,0,0,0.3) ;"><a href="#"><strong><span style="color: rgb(33, 37, 41);">C# 검색 결과 1</span></strong><br></a>
+                                        <p style="font-size: 13px;">검색 결과 링크의 내용 미리보기 입니다. 글자수 제한이 들어갈 예정입...</p>
+                                        <p style="font-size: 13px;margin: 0px;">누군가의 블로그</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom-width: 0px;">
+                                    <div class="col" style="margin-bottom: 8px;padding: 8px;border-bottom: 1px solid rgba(0,0,0,0.3) ;"><a href="#"><strong><span style="color: rgb(33, 37, 41);">C# 검색 결과 2</span></strong><br></a>
+                                        <p style="font-size: 13px;">검색 결과 링크의 내용 미리보기 입니다. 글자수 제한이 들어갈 예정입...</p>
+                                        <p style="font-size: 13px;margin: 0px;">누군가의 블로그</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom-width: 0px;">
+                                    <div class="col" style="margin-bottom: 8px;padding: 8px;border-bottom: 1px solid rgba(0,0,0,0.3) ;"><a href="#"><strong><span style="color: rgb(33, 37, 41);">C# 검색 결과 3</span></strong><br></a>
+                                        <p style="font-size: 13px;">검색 결과 링크의 내용 미리보기 입니다. 글자수 제한이 들어갈 예정입...</p>
+                                        <p style="font-size: 13px;margin: 0px;">누군가의 한숨</p>
                                     </div>
                                 </td>
                             </tr>
@@ -53,4 +55,5 @@
         </section>
     </main>
 </th:block>
+
 </html>

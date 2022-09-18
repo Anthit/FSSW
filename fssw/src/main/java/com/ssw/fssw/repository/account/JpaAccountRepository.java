@@ -3,6 +3,7 @@ package com.ssw.fssw.repository.account;
 import com.ssw.fssw.domain.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Repository;
 //import com.ssw.fssw.domain.CustomUserDetails;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
+@Repository
 public class JpaAccountRepository implements AccountRepository{
     private final EntityManager em;
 
@@ -19,6 +21,7 @@ public class JpaAccountRepository implements AccountRepository{
 
     @Override
     public Account save(Account account) {
+        log.info("JpaAccountRepository save !!!");
         em.persist(account);
         return account;
     }
@@ -37,6 +40,14 @@ public class JpaAccountRepository implements AccountRepository{
                 .stream()
                 .findAny()
                 .orElseThrow(() -> new UsernameNotFoundException("유저 이메일이 " + email + "인 사용자를 찾을 수 없습니다.")));
+    }
+
+    public Optional<Account> findByEmailForValidEmail(String email) {
+        return em.createQuery("select a from Account a where a.email=:email", Account.class)
+                .setParameter("email", email)
+                .getResultList()
+                .stream()
+                .findAny();
     }
 
 //    @Override

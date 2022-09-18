@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout}">
+<th:block layout:fragment="content">
+<div class="container-fluid">
+    <div class="card shadow" style="width: 100%;">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">커뮤니티 게시글 작성</p>
+        </div>
+        <div class="card-body" style="height: 100%;width: 100%;">
+            <section class="position-relative py-4 py-xl-5" style="width: 100%;height: 80%;">
+                <div class="container position-relative" style="width: 100%;height: 100%;">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4" style="width: 100%;">
+                            <div class="card mb-5">
+                                <div class="card-body p-sm-5">
+                                    <h2 class="text-center mb-4"></h2>
+                                    <form th:action="@{/community/comWrite}" th:object="${comForm}" method="post"
+                                          style="width: 100%;height: 100%;"  onsubmit="alert('작성이 완료 되었습니다.');">
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="date" style="width: 40.8px;margin: 2px;">
+                                                제목</p>
+                                            <input class="form-control" th:value="${comForm.localDateTime}" type="hidden" name="제목"
+                                                   placeholder="자동 날짜"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" id="board_num" th:value="${comForm.board_num}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="title" style="width: 40.8px;margin: 2px;"></p>
+                                            <input class="form-control" th:field="*{title}" type="text" name="제목"
+                                                   placeholder="제목을 입력하세요" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="content"
+                                               style="font-size: 16px;width: 40.8px;margin: 2px;">내용</p>
+                                            <textarea class="form-control" th:field="*{content}" name="내용" rows="6"
+                                                      placeholder="내용을 입력하세요"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p style="margin: 2px;">카테고리</p><select th:field="*{category}"
+                                                                                    class="form-select">
+                                            <optgroup label>
+                                                <option value="연애 상담">연애 상담</option>
+                                                <option value="팀플 상담">팀플 상담</option>
+                                                <option value="공부 상담">공부 상담</option>
+                                            </optgroup>
+                                        </select>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                        <div class="row" style="height: 20%;">
+                                            <div class="col d-flex justify-content-center align-items-center"
+                                                 style="width: 100%;height: 30%;padding: 0px;">
+                                                <a class="btn btn-primary text-start d-flex" href="/community"
+                                                   type="button">취소
+                                                </a>
+                                                <div style="width: 20px;"></div>
+                                                <input id="commit-write" class="btn btn-primary" type="submit"/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</th:block>
+
+</html>

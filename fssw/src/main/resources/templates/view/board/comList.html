@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout}">
+<th:block layout:fragment="content">
+<div class="container-fluid" style="height: 100%;">
+    <div class="card shadow" style="margin-top: 80px;">
+        <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">일반 게시판</span></div>
+        <div class="card-body">
+            <div class="d-flex justify-content-start dataTables_length" id="dataTable_length"
+                 aria-controls="dataTable"></div>
+                <div class="col offset-0 d-flex d-lg-flex justify-content-end" style="width: 100%;">
+                    <a href="/community/comWrite"
+                       class="btn btn-primary text-center border rounded d-lg-flex justify-content-center align-items-center justify-content-lg-center justify-content-xxl-center"
+                       type="button"
+                       style="width: 100px;height: 60px;color: rgb(255,255,255);background: rgb(32,113,250);font-size: 13px;border-color: #ffffff;">게시글
+                        작성</a></div>
+            </div>
+            <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                <table class="table my-0" id="dataTable">
+                    <thead>
+                    <tr>
+                        <td>카테고리</td>
+                        <td>제목</td>
+                        <td>작성 날짜</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- 만약 num값이 1이라면 1번에 해당하는 값을 출력해줍니다. -->
+                    <tr class="flash animated" th:each="communityList : ${data}" th:if="${communityList.num == 1}">
+                        <td class="flash animated" th:text="${communityList.category}"></td>
+                        <td><a th:href="@{/community/{id}/comDetail (id=${communityList.id})}"
+                               th:text="${communityList.title}"></a></td>
+                        <td th:text="${#temporals.format(communityList.date, 'yyyy-MM-dd')}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center" style="margin-top: 20px;">
+                        <li class="page-item" th:classappend="${1 == data.pageable.pageNumber + 1} ? 'disabled'">
+                            <a class="page-link"
+                               href="#"
+                               tabindex="-1" aria-disabled="true"
+                               th:href="@{/community(page=${data.pageable.pageNumber - 1}, search=${param.search})}">이전</a>
+                        </li>
+                        <li class="page-item"
+                            th:each="i: ${#numbers.sequence(startPage,endPage)}"
+                            th:classappend="${i == data.pageable.pageNumber + 1} ? 'disabled'">
+                            <a class="page-link"
+                               th:text="${i}" href="#"
+                               th:href="@{/community(page=${i - 1},search=${param.search})}">1</a>
+                        </li>
+                        <li class="page-item"
+                            th:classappend="${data.totalPages == data.pageable.pageNumber + 1} ? 'disabled'">
+                            <a class="page-link"
+                               th:href="@{/community(page=${data.pageable.pageNumber + 1 },search=${param.search})}"
+                               href="#">다음</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex justify-content-center" method="GET" th:action="@{/community}">
+                        <div class="col-auto">
+                            <select id="category" name="category" class="form-select"
+                                    onchange="this.options[this.selectedIndex].value()">
+                                <option id="1">연애 상담</option>
+                                <option id="2">팀플 상담</option>
+                                <option id="3">공부 상담</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <label for="search" class="visually-hidden">검색</label>
+                            <input type="text" class="form-control" id="search" name="search" th:value="${param.search}"/>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-5">검색</button>
+                        </div>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+</th:block>
+</html>

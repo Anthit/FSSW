@@ -1,7 +1,6 @@
 package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Account;
-import com.ssw.fssw.repository.account.MemoryAccountRepository;
 import com.ssw.fssw.service.account.AccountService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

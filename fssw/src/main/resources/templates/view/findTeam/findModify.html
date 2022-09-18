@@ -3,51 +3,64 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{/layouts/layout}">
 <th:block layout:fragment="content">
-    <div class="container-fluid">
-        <div class="card shadow" style="width: 100%;height: 100%;margin-top: 100px;">
-            <div class="card-header py-3"><span style="color: rgb(32,113,250);font-weight: bold;">팀원 구하기 게시글 수정</span></div>
-            <div class="card-body" style="height: 550px;width: 100%;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"></label></div>
+
+<div class="container-fluid">
+    <div class="card shadow" style="width: 100%;">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">팀원 구해요 게시글 작성</p>
+        </div>
+        <div class="card-body" style="height: 100%;width: 100%;">
+            <section class="position-relative py-4 py-xl-5" style="width: 100%;height: 80%;">
+                <div class="container position-relative" style="width: 100%;height: 100%;">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4" style="width: 100%;">
+                            <div class="card mb-5">
+                                <div class="card-body p-sm-5">
+                                    <h2 class="text-center mb-4"></h2>
+                                    <form th:object="${updateFindForm}" method="post"
+                                          style="width: 100%;height: 100%;">
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="title" style="width: 40.8px;margin: 2px;">
+                                                제목</p>
+                                            <input class="form-control" th:field="*{title}" type="text" name="제목"
+                                                   placeholder="제목을 입력하세요"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="text-center" th:for="content"
+                                               style="font-size: 16px;width: 40.8px;margin: 2px;">내용</p>
+                                            <textarea class="form-control" th:field="*{content}" name="내용" rows="6"
+                                                      placeholder="내용을 입력하세요"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <p style="margin: 2px;">카테고리</p><select th:field="*{category}"
+                                                                                    class="form-select">
+                                            <optgroup label>
+                                                <option value="1">연애 상담</option>
+                                                <option value="2">팀플 상담</option>
+                                                <option value="3">공부 상담</option>
+                                            </optgroup>
+                                        </select>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                        <div class="row" style="height: 20%;">
+                                            <div class="col d-flex justify-content-center align-items-center"
+                                                 style="width: 100%;height: 30%;padding: 0px;">
+                                                <button class="btn btn-primary text-start d-flex" type="button">취소
+                                                </button>
+                                                <div style="width: 20px;"></div>
+                                                <button class="btn btn-primary" type="submit">게시글 입력</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info" style="height: 350.1px;">
-                    <table class="table my-0" id="dataTable">
-                        <thead>
-                            <tr></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>제목</td>
-                                <td><input type="text" placeholder="제목을 입력해주세요." style="width: 100%;"><br></td>
-                            </tr>
-                            <tr>
-                                <td style="height: 100px;width: 100px;">설명</td>
-                                <td><textarea class="bg-white border rounded border-1 shadow-sm" id="message-1" name="설명" rows="8" cols="0" placeholder="설명을 입력해주세요." style="width: 100%;"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td style="width: 102px;">팀 종류</td>
-                                <td><select>
-                                        <option value="12" selected="">---선택 해주세요---</option>
-                                        <option value="12">팀 프로젝트</option>
-                                        <option value="13">스터디</option>
-                                        <option value="14">기술 면접 준비</option>
-                                    </select></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr></tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="row" style="width: 100%;height: 29px;">
-                    <div class="col d-flex justify-content-center align-items-center" style="height: 85px;width: 100%;"><button class="btn btn-primary text-start d-flex" type="button" style="background: rgb(32,113,250);border-color: rgb(255,255,255);">취소</button>
-                        <div style="width: 20px;"></div><button class="btn btn-primary" type="button" style="background: rgb(32,113,250);border-color: rgb(255,255,255);">게시글 수정</button>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </div>
+</div>
 </th:block>
 </html>

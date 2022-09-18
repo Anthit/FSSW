@@ -33,7 +33,8 @@ public class SignupController {
         account.setPw(encodedpw);
 //        account = new Account(account.getNum(), account.getEmail(), encodedpw, account.getNick());
 //
-        accountService.join(account);
+        long num = accountService.join(account);
+        log.info("num : " + num);
         return "redirect:/main/login";
     }
 }

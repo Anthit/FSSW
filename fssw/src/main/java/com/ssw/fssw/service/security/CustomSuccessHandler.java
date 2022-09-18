@@ -21,6 +21,12 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String url = Optional.ofNullable(
                 (String) request.getSession().getAttribute("referer")
                 ).orElse("/main");
+        log.info("referer url : " + url);
+        url = (
+                url.equals("http://localhost:8080/main/signup")
+                || url.equals("http://localhost:8080/main/login")
+                || url.equals("http://localhost:8080/main/login.fail")
+        ) ? "/main" : url;
         response.sendRedirect(url);
     }
 }
