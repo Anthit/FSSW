@@ -27,10 +27,15 @@ public class SearchKeywordController {
 
     @GetMapping("/{keyword}")
     public String searchKeyword(@PathVariable("keyword") String keyword, Model model, HttpServletRequest request) throws Exception {
-        List<GoogleUrl> urlList = searchService.showGoogleSearchResult(keyword);
-        model.addAttribute("urlList", urlList);
-
         HttpSession session = request.getSession();
+
+        List<GoogleUrl> urlList = searchService.showGoogleSearchResult(keyword);
+        log.info("list size : " + urlList.size());
+        for(GoogleUrl g : urlList) {
+            log.info("googleUrl : " + g.getTitle());
+        }
+        session.setAttribute("googleUrls", urlList);
+
 
         String refer = request.getHeader("referer");
 
@@ -50,8 +55,13 @@ public class SearchKeywordController {
             keywordList = new ArrayList<>();
             keywordList.add(keyword);
         }
-
         session.setAttribute("keywordList", keywordList);
+
+
+        keywordList = searchService.stringResult(keyword);
+        session.setAttribute("searchKeywordList", keywordList);
+
+
         return "view/searchKeyword/searchKeyword";
     }
 }

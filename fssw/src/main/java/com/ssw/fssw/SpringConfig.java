@@ -36,7 +36,7 @@ public class SpringConfig {
 //        this.accountRepository = accountRepository;
         this.em = em;
         RestClient restClient = RestClient.builder(
-                new HttpHost("192.168.10.20", 9200)).build();
+                new HttpHost("49.50.161.128", 9200)).build();
         ElasticsearchTransport transport = new RestClientTransport(restClient, new JacksonJsonpMapper());
         this.client = new ElasticsearchClient(transport);
         this.searchRepository = new ElasticSearchRepository(client);

@@ -13,6 +13,9 @@ spring:
 #        show_sql: true
         format_sql: true
 
+  elasticsearch:
+    uris: 49.50.161.128:9200
+
 logging.level:
   org.hibernate.SQL: debug
 #  org.hibernate.type: trace

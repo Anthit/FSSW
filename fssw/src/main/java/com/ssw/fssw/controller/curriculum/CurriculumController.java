@@ -23,8 +23,8 @@ public class CurriculumController {
 
     @GetMapping
     public String curriculum(Model model) throws Exception {
-        List<Map.Entry<String, Long>> list = searchService.extractKeyword();
-        model.addAttribute("lists", list);
+//        List<Map.Entry<String, Long>> list = searchService.extractKeyword();
+//        model.addAttribute("lists", list);
         return "view/curriculum/curriculum";
     }
 }
