@@ -22,6 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         Account account = accountRepository.findByEmail(username).get();
         String auth =(!account.getEmail().equals("admin"))? "USER" : "ADMIN";
 
+
         return User.builder()
                 .username(account.getEmail())
                 .password(account.getPw())

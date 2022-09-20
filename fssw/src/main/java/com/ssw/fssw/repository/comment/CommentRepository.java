@@ -1,4 +1,4 @@
-package com.ssw.fssw.repository;
+package com.ssw.fssw.repository.comment;
 
 import com.ssw.fssw.domain.Comment;
 import lombok.RequiredArgsConstructor;

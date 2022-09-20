@@ -26,10 +26,12 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMMENT_COMMUNITY_ID")
     private Community community;
+
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMMENT_USER_ID")
-    private User user;
+    private Account Account;
 
     @Column(name = "comment_text", length = 1000)
     public String text;

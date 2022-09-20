@@ -1,8 +1,8 @@
 package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Community;
-import com.ssw.fssw.repository.CommunityApiRepository;
-import com.ssw.fssw.repository.CommunityRepository;
+import com.ssw.fssw.repository.community.CommunityApiRepository;
+import com.ssw.fssw.repository.community.CommunityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

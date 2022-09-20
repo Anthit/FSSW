@@ -1,4 +1,4 @@
-package com.ssw.fssw.repository;
+package com.ssw.fssw.repository.community;
 
 
 import com.ssw.fssw.domain.Community;
