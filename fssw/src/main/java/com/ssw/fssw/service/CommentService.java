@@ -1,11 +1,9 @@
 package com.ssw.fssw.service;
 
 import com.ssw.fssw.domain.Comment;
-import com.ssw.fssw.domain.Community;
-import com.ssw.fssw.repository.CommentApiRepository;
-import com.ssw.fssw.repository.CommentRepository;
+import com.ssw.fssw.repository.comment.CommentApiRepository;
+import com.ssw.fssw.repository.comment.CommentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

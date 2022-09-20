@@ -1,11 +1,10 @@
 package com.ssw.fssw.controller.findteam;
 
 import com.ssw.fssw.controller.comment.CommentForm;
-import com.ssw.fssw.controller.coummuity.CommunityForm;
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
-import com.ssw.fssw.repository.CommentApiRepository;
-import com.ssw.fssw.repository.CommunityApiRepository;
+import com.ssw.fssw.repository.comment.CommentApiRepository;
+import com.ssw.fssw.repository.community.CommunityApiRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;

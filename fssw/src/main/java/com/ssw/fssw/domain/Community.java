@@ -23,7 +23,7 @@ public class Community {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Community_user_id")
-    private User user;
+    private Account Account;
 
     @Column(name="Community_number")
     private int num;
@@ -36,9 +36,6 @@ public class Community {
 
     @Column(name="Community_content",length = 1000)
     private String contents;
-
-//    @Column(columnDefinition = "integer default 0", nullable = false)
-//    private int view;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd 'T' HH:mm:ss", timezone = "Asia/Seoul")

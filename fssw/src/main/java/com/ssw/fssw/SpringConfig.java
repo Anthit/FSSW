@@ -11,7 +11,6 @@ import com.ssw.fssw.repository.elasticsearch.SearchRepository;
 import com.ssw.fssw.repository.account.AccountRepository;
 import com.ssw.fssw.repository.account.JpaAccountRepository;
 import com.ssw.fssw.service.account.AccountService;
-import com.ssw.fssw.service.board.BoardService;
 import com.ssw.fssw.service.search.SearchService;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
@@ -25,7 +24,6 @@ import javax.persistence.EntityManager;
 @Configuration
 public class SpringConfig {
 
-//    private final AccountRepository accountRepository;
     private final SearchRepository searchRepository;
     private ElasticsearchClient client;
     private EntityManager em;
@@ -57,10 +55,6 @@ public class SpringConfig {
         return new JpaAccountRepository(em);
     }
 
-    @Bean
-    public BoardService boardService(){
-        return new BoardService(boardRepository());
-    }
     @Bean
     public BoardRepository boardRepository(){
         return new JpaBoardRepository(em);

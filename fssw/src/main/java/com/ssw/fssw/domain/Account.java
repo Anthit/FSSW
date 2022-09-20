@@ -1,7 +1,15 @@
 package com.ssw.fssw.domain;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 public class Account {
     @Id
@@ -18,28 +26,11 @@ public class Account {
     @Column(name = "nick")
     private String nick;
 
-    public Long getNum() {
-        return num;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getPw() {
-        return pw;
-    }
-    public String getNick() {
-        return nick;
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "Account", cascade = CascadeType.ALL)
+    private List<Community> communityList = new ArrayList<>();
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public void setPw(String pw) {
-        this.pw = pw;
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "Account", cascade = CascadeType.ALL)
+    private List<Comment> commentList = new ArrayList<>();
 }

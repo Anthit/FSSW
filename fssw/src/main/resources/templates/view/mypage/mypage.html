@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{/layouts/layout}">
 <th:block layout:fragment="content">
     <div class="container-fluid">
@@ -12,12 +13,12 @@
             </div>
             <div class="card-body" style="height: 550px;padding-bottom: 9px;">
                 <form style="padding-top: 0px;margin-top: 6px;">
-                    <div class="text-center">
-                        <p class="text-end" style="text-decoration: underline;"> 이은성님 안녕하세요!</p>
+                    <div sec:authorize="hasRole('USER')"  class="text-right">
+                        <p th:text="${session.nickname}"></p>
                     </div>
                 </form>
                 <div class="d-flex align-items-center" style="margin-top: 0px;margin-bottom: 0px;padding-bottom: 0px;"><i class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"></i>
-                    <p class="d-flex align-items-end" style="margin-bottom: -6px;padding-bottom: 4px;">roro123</p>
+                    <p class="d-flex align-items-end" style="margin-bottom: -6px;padding-bottom: 4px;">name</p>
                 </div>
                 <div class="d-flex" style="margin-top: 25px;"><i class="fa fa-table icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"></i>
                     <p class="d-flex align-items-end" style="padding-bottom: 0px;margin-bottom: 0px;">3학년 C반 입니다.</p>

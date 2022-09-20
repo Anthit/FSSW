@@ -2,15 +2,14 @@ package com.ssw.fssw.controller.comment;
 
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
-import com.ssw.fssw.repository.CommentApiRepository;
-import com.ssw.fssw.repository.CommentRepository;
+import com.ssw.fssw.repository.comment.CommentApiRepository;
+import com.ssw.fssw.repository.comment.CommentRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @Controller

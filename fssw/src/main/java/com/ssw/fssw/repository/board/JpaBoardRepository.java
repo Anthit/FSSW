@@ -1,6 +1,6 @@
 package com.ssw.fssw.repository.board;
 
-import com.ssw.fssw.domain.Board;
+//import com.ssw.fssw.domain.Board;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -13,23 +13,23 @@ public class JpaBoardRepository implements BoardRepository{
         this.em = em;
     }
 
-    @Override
-    public Board save(Board board) {
-        em.persist(board);
-        return board;
-    }
+//    @Override
+//    public Board save(Board board) {
+//        em.persist(board);
+//        return board;
+//    }
 
-    @Override
-    public List<Object> findAllBoardList(int offset, int limit) {
-        return em.createQuery("select b.type, b.title from BOARD b order by b.num DESC")
-               .setFirstResult(offset)
-               .setMaxResults(limit)
-               .getResultList();
-    }
-
-    @Override
-    public Optional<Board> findByNum(long num) {
-        Board board = em.find(Board.class, num);
-        return Optional.ofNullable(board);
-    }
+//    @Override
+//    public List<Object> findAllBoardList(int offset, int limit) {
+//        return em.createQuery("select b.type, b.title from BOARD b order by b.num DESC")
+//               .setFirstResult(offset)
+//               .setMaxResults(limit)
+//               .getResultList();
+//    }
+//
+//    @Override
+//    public Optional<Board> findByNum(long num) {
+//        Board board = em.find(Board.class, num);
+//        return Optional.ofNullable(board);
+//    }
 }

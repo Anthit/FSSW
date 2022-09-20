@@ -2,25 +2,23 @@ package com.ssw.fssw.controller.coummuity;
 
 
 import com.ssw.fssw.controller.comment.CommentForm;
+import com.ssw.fssw.domain.Account;
 import com.ssw.fssw.domain.Comment;
 import com.ssw.fssw.domain.Community;
-import com.ssw.fssw.repository.CommentApiRepository;
-import com.ssw.fssw.repository.CommentRepository;
-import com.ssw.fssw.repository.CommunityApiRepository;
+import com.ssw.fssw.repository.comment.CommentApiRepository;
+import com.ssw.fssw.repository.community.CommunityApiRepository;
 import com.ssw.fssw.service.CommentService;
 import com.ssw.fssw.service.CommunityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -55,7 +53,7 @@ public class CommunityController {
 
 
     @PostMapping("/comWrite")
-    public String saveWrite(CommunityForm form) {
+    public String saveWrite(CommunityForm form , @AuthenticationPrincipal Account account) {
 
         Community community = new Community();
         community.setTitle(form.getTitle());
@@ -63,7 +61,6 @@ public class CommunityController {
         community.setDate(form.getLocalDateTime().now());
         community.setCategory(form.getCategory());
         community.setNum(form.getBoard_num());
-
         communityService.saveCommunity(community);
         return "redirect:/community";
     }
